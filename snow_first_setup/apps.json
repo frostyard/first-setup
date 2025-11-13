@@ -1,6 +1,14 @@
 {
     "core": [
         {
+            "name": "Bazaar App Store",
+            "id": "io.github.kolunmi.Bazaar"
+        },
+        {
+            "name": "MissionCenter System Monitor",
+            "id": "io.missioncenter.MissionCenter"
+        },
+        {
             "name": "Audio Player",
             "id": "org.gnome.Decibels"
         },
@@ -94,20 +102,8 @@
     ],
     "utilities": [
         {
-            "name": "Bottles",
-            "id": "com.usebottles.bottles"
-        },
-        {
-            "name": "Extension Manager",
-            "id": "com.mattjakeman.ExtensionManager"
-        },
-        {
-            "name": "Heroic Games Launcher",
-            "id": "com.heroicgameslauncher.hgl"
-        },
-        {
-            "name": "Lutris",
-            "id": "net.lutris.Lutris"
+            "name": "DistroShelf",
+            "id": "com.ranfdev.DistroShelf"
         },
         {
             "name": "Boxes",
@@ -156,6 +152,10 @@
             "id": "org.mozilla.firefox"
         },
         {
+            "name": "Microsoft Edge",
+            "id": "com.microsoft.Edge"
+        },
+        {
             "name": "Google Chrome",
             "id": "com.google.Chrome",
             "active": false
@@ -178,26 +178,6 @@
         {
             "name": "LibreWolf",
             "id": "io.gitlab.librewolf-community",
-            "active": false
-        },
-        {
-            "name": "Zen",
-            "id": "app.zen_browser.zen",
-            "active": false
-        },
-        {
-            "name": "Microsoft Edge",
-            "id": "com.microsoft.Edge",
-            "active": false
-        },
-        {
-            "name": "Vivaldi",
-            "id": "com.vivaldi.Vivaldi",
-            "active": false
-        },
-        {
-            "name": "GNOME Web",
-            "id": "org.gnome.Epiphany",
             "active": false
         }
     ]
