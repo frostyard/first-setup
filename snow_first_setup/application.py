@@ -130,6 +130,8 @@ class FirstSetupApplication(Adw.Application):
         configure_system_mode = False
         if "snow-first-setup" in all_groups and os.getlogin() in grp.getgrnam("snow-first-setup").gr_mem:
             configure_system_mode = True
+            # add oem mode by default
+            self.oem_mode = True
 
         if self.force_configure:
             configure_system_mode = True

@@ -10,4 +10,5 @@ if [ "$UID" == "0" ]; then
     exit 7
 fi
 
-
+# do things here for the user that might need to happen on first setup
+# maybe add brew to the bashrc?
