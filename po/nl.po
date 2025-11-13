@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# Philip Goto <philip.goto@gmail.com>, 2023, 2024, 2025.
+# Artzert <gamingmmail@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2025-09-20 08:02+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/snow-os/"
+"first-setup/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "Configuratie van Vanilla OS"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "Terug"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "Volgende"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "Klaar!"
+
+#: snow_first_setup/gtk/logout.ui:13
+msgid "Login to your new user"
+msgstr "Inloggen als je nieuwe gebruiker"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr "Nu inloggen"
+
+#: snow_first_setup/gtk/done.ui:13
+msgid "Your user account is ready to use"
+msgstr "Uw apparaat is klaar om gebruikt te worden"
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr "Maak een rondleiding"
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr "Verlaten"
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr "Voortgang"
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr "Sommige stukken kunnen even duren"
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Informatie wordt weer­gegeven"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+msgid "Checking Connection"
+msgstr "Verbinding controleren"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Wacht tot de verbindings­controle is afgerond"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+msgid "Open Settings"
+msgstr "Instellingen openen"
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "Kleuren­schema"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "Kies een kleuren­schema voor uw systeem"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr "Lichte modus"
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr "Licht"
+
+#: snow_first_setup/gtk/theme.ui:88
+msgid "Dark Mode"
+msgstr "Donkere modus"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "Donker"
+
+#: snow_first_setup/gtk/welcome.ui:39
+msgid "Make your choices, this wizard will take care of everything"
+msgstr "Maak uw keuzes, deze gids zal alles regelen"
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr "Starten"
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr "Toegankelĳkheid"
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+msgid "Let's set up your user account"
+msgstr "Geef details voor uw gebruikersaccount op"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "Gebruiker aanmaken"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "Geef details voor uw gebruikers­account op"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "Naam"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "Bevestig wachtwoord"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "Apparaatnaam"
+
+#: snow_first_setup/gtk/hostname.ui:14
+msgid "Name your device"
+msgstr "Geef uw apparaat een naam"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+"De host-naam kan enkel kleine letters (a-z), punten, streepjes, en maximaal "
+"64 karakters bevatten."
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr "Taal"
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr "Selecteer uw taal"
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr "Zoek toetsenbord­indelingen"
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr ""
+"De zoek­resultaten zĳn onvolledig. Probeer uw zoek­opdracht te verfĳnen."
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr "Datum en tĳd"
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr "Selecteer uw tĳdzone"
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr "Huidige tĳdzone:"
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr "niet ingesteld"
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr "Toetsenbord­indeling"
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr "Kies je gewenste toetsenbordindelingen"
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr "Apps"
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr "Kies welke apps je wilt installeren."
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr "Kern-apps"
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr "Essentiële GNOME apps zoals Kalender of Documentenviewer"
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr "Kern-apps aanpassen"
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr "Browsers"
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr "Browsers aanpassen"
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr "Veelgebruikte Tools"
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr "Handige tools om je desktop ervaring te verhogen"
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr "Tools Aanpassen"
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr "Kantoor"
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr "De LibreOffice-suite"
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr "Kantoor-apps aanpassen"
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr "Apps selecteren"
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr "Toe­passen"
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr "Kies de apps die je wilt installeren"
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr "Instelling gefaald: "
+
+#: snow_first_setup/window.py:79
+msgid "Details"
+msgstr "Details"
+
+#: snow_first_setup/window.py:85
+msgid "Error log"
+msgstr "Fout­logboek"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr "Maak geen aanpassingen aan het systeem."
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr "Forceer de systeemconfiguatie­modus, onafhankelĳk van de groep."
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr "Forceer de standaard­modus, onafhankelĳk van de groep."
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+"Gebruik de toestelfabrikant­modus met selectie van taal, toetsenbord en "
+"tĳdzone."
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "Geen internet­verbinding!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "Configuratie vereist een actieve internet­verbinding"
+
+#: snow_first_setup/views/conn_check.py:79
+msgid "Connection available"
+msgstr "Verbinding beschikbaar"
+
+#: snow_first_setup/views/conn_check.py:80
+msgid "You have a working internet connection"
+msgstr "U heeft een werkende internet­verbinding"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr "Toetsen­bord"
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr "Gebruikers­naam kan niet leeg zĳn."
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr "Gebruikers­naam kan niet langer dan 32 karakters zĳn."
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr "Gebruikersnaam kan geen speciale karakters of hoofdletters bevatten."
+
+#: snow_first_setup/views/user.py:128
+msgid "This username is already in use."
+msgstr "Deze naam is al in gebruik."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr "Regio"
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr "Land"
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr "Zoek­resultaten"
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr "Tĳd­zone"
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr "Hallo {}!"
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr "Systeeminstelling"
+
+#: snow_first_setup/views/progress.py:97
+msgid "Installing"
+msgstr "Bezig met installeren"
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr "Europa"
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr "Azië"
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr "Amerika"
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr "Afrika"
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr "Antarctica"
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr "Grote Oceaan"
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr "Australië"
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr "Atlantische Oceaan"
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr "Indische Oceaan"
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr "Arctische"
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "Pas uw installatie van Vanilla OS aan"
+
+#~ msgid "No description"
+#~ msgstr "Geen omschrĳving"
+
+#~ msgid "First release"
+#~ msgstr "Eerste uitgave"
+
+#~ msgid "Internet"
+#~ msgstr "Internet"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "Een actieve internet­verbinding is vereist om uw favoriete apps te "
+#~ "downloaden en uw systeem up-to-date te houden"
+
+#~ msgid "Wired"
+#~ msgstr "Bedraad"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "Draad­loze net­werken"
+
+#~ msgid "Advanced"
+#~ msgstr "Geavanceerd"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "Verbinden met verborgen netwerk…"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "Welcome!"
+#~ msgstr "Welkom!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr ""
+#~ "Start uw apparaat opnieuw op om te genieten van uw ervaring met Vanilla OS"
+
+#~ msgid "Enable"
+#~ msgstr "Inschakelen"
+
+#~ msgid "Finalizing..."
+#~ msgstr "Afronden…"
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "Uw apparaat zal binnenkort gereed zĳn"
+
+#~ msgid "Show Console Output"
+#~ msgstr "Console­uitvoer tonen"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "Dia­voorstelling tonen"
+
+#~ msgid "Read More"
+#~ msgstr "Meer lezen"
+
+#~ msgid "Connected"
+#~ msgstr "Verbonden"
+
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "Wacht tot de verbindings­controle is afgerond."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "Onveilig netwerk (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "Onveilig netwerk (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "Veilig netwerk (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "Veilig netwerk (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "Authenticatie vereist"
+
+#~ msgid "Connecting"
+#~ msgstr "Verbinden"
+
+#~ msgid "Disconnected"
+#~ msgstr "Niet verbonden"
+
+#~ msgid "Disconnecting"
+#~ msgstr "Verbinding verbreken"
+
+#~ msgid "Status Unknown"
+#~ msgstr "Status onbekend"
+
+#~ msgid "Unmanaged"
+#~ msgstr "Onbeheerd"
+
+#~ msgid "Unavailable"
+#~ msgstr "Niet beschikbaar"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
+
+#~ msgid "Cable Unplugged"
+#~ msgstr "Kabel niet verbonden"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "Selecteer ten minste één optie."
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr "Start uw apparaat opnieuw op om te genieten van uw ervaring met {}."
+
+#~ msgid "Something went wrong"
+#~ msgstr "Er is iets fout gegaan"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "Neem contact op met de distributie­ontwikkelaars."
+
+#~ msgid "Run a post script"
+#~ msgstr "Een post-script uitvoeren"
+
+#~ msgid "Done!"
+#~ msgstr "Klaar!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "Er is iets fout gegaan."
+
+#~ msgid "Connect to the Internet"
+#~ msgstr "Verbinden met internet"
+
+#~ msgid "All done!"
+#~ msgstr "Helemaal klaar!"
+
+#~ msgid "Yes, enable it"
+#~ msgstr "Ja, inschakelen"
+
+#~ msgid "The changes are being applied. Please Wait…"
+#~ msgstr "Wijzigingen worden toegepast. Even geduld…"

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0" />
+  <template class="VanillaWindow" parent="AdwApplicationWindow">
+    <property name="default-width">800</property>
+    <property name="default-height">750</property>
+    <property name="title">First Setup</property>
+    <property name="deletable">False</property>
+    <child>
+      <object class="AdwBin">
+        <property name="child">
+          <object class="AdwToolbarView">
+            <property name="content">
+              <object class="GtkOverlay">
+                <property name="valign">center</property>
+                <child type="overlay">
+                  <object class="GtkButton" id="btn_back">
+                    <property name="visible">False</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="icon-name">go-previous-symbolic</property>
+                    <property name="halign">start</property>
+                    <property name="valign">center</property>
+                    <property name="tooltip-text" translatable="yes">Back</property>
+                    <style>
+                      <class name="circular"/>
+                    </style>
+                  </object>
+                </child>
+                <child type="overlay">
+                  <object class="GtkButton" id="btn_next">
+                    <property name="visible">true</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="icon-name">go-next-symbolic</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <property name="tooltip-text" translatable="yes">Next</property>
+                    <property name="sensitive">False</property>
+                    <style>
+                      <class name="circular"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+                <child type="overlay">
+                  <object class="GtkButton" id="btn_next_spinner">
+                    <property name="visible">false</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="icon-name">go-next-symbolic</property>
+                    <property name="halign">end</property>
+                    <property name="valign">center</property>
+                    <property name="tooltip-text" translatable="yes">Next</property>
+                    <property name="sensitive">True</property>
+                    <style>
+                      <class name="circular"/>
+                      <class name="suggested-action"/>
+                    </style>
+                    <child>
+                      <object class="GtkSpinner">
+                        <property name="spinning">true</property>
+                        <property name="margin-start">8</property>
+                        <property name="margin-end">8</property>
+                        <property name="visible">true</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="vexpand">true</property>
+                    <property name="hexpand">true</property>
+                    <child>
+                      <object class="AdwToastOverlay" id="toasts">
+                        <child>
+                          <object class="GtkStack" id="stack">
+                            <property name="vexpand">True</property>
+                            <property name="hexpand">True</property>
+                            <property name="transition-type">slide-left-right</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </child>
+  </template>
+</interface>

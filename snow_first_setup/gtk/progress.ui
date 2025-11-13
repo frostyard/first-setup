@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaProgress" parent="AdwBin">
+    <property name="hexpand">1</property>
+    <property name="vexpand">1</property>
+    <child>
+      <object class="AdwStatusPage">
+        <property name="title" translatable="yes">Progress</property>
+        <property name="description" translatable="yes">Some steps still take some time</property>
+        <child>
+          <object class="AdwClamp">
+            <property name="maximum-size">600</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">1</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="AdwPreferencesGroup" id="action_list"></object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,7 @@
+polkit.addRule(function(action, subject) {
+    if (action.id.startsWith("org.frostyard.FirstSetup.scripts") && subject.isInGroup("snow-first-setup")) {
+        polkit.log("action=" + action);
+        polkit.log("subject=" + subject);
+        return polkit.Result.YES;
+    }
+});

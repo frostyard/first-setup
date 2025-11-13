@@ -1,0 +1,550 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# gnu-ewm <gnu.ewm@protonmail.com>, 2023.
+# Tomasz Dyńka <gramyteraz12@gmail.com>, 2023.
+# Marek <uroda.mar@gmail.com>, 2024.
+# Dawid Harwig <dawidharwig@gmail.com>, 2024.
+# Piotr Wieczorek <wieczorek.piotr.praga@protonmail.com>, 2024, 2025.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2025-03-09 13:19+0000\n"
+"Last-Translator: Piotr Wieczorek <wieczorek.piotr.praga@protonmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/snow-os/first-"
+"setup/pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10.3-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "Pierwsze uruchomienie systemu Vanilla OS"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "Wstecz"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "Dalej"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "Zakończono!"
+
+#: snow_first_setup/gtk/logout.ui:13
+msgid "Login to your new user"
+msgstr "Zaloguj się jako nowy użytkownik"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr "Zaloguj się teraz"
+
+#: snow_first_setup/gtk/done.ui:13
+msgid "Your user account is ready to use"
+msgstr "Twoje konto jest gotowe do używania"
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr "Wyświetl wprowadzenie"
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr "Wyjdź"
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr "Postęp"
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr "Może to zająć trochę czasu"
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Wyświetlanie informacji"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+msgid "Checking Connection"
+msgstr "Sprawdzanie połączenia"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Proszę poczekać, aż sprawdzanie połączenia zostanie zakończone"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+msgid "Open Settings"
+msgstr "Otwórz ustawienia"
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "Schemat kolorów"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "Wybierz schemat kolorów dla swojego systemu"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr "Tryb jasny"
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr "Jasny"
+
+#: snow_first_setup/gtk/theme.ui:88
+msgid "Dark Mode"
+msgstr "Tryb ciemny"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "Ciemny"
+
+#: snow_first_setup/gtk/welcome.ui:39
+msgid "Make your choices, this wizard will take care of everything"
+msgstr "Dokonaj wyborów, a my zajmiemy się wszystkim"
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr "Rozpocznij"
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr "Dostępność"
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+msgid "Let's set up your user account"
+msgstr "Utwórz swoje konto użytkownika"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "Stwórz Użytkownika"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "Podaj szczegóły dotyczące konta użytkownika"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "Nazwa"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "Nazwisko"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "Hasło"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "Potwierdź hasło"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "Nazwa Urządzenia"
+
+#: snow_first_setup/gtk/hostname.ui:14
+msgid "Name your device"
+msgstr "Nazwij swoje urządzenie"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr "Język"
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr "Wybierz swój język"
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr "Wyszukaj układ klawiatury"
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr "Wyniki wyszukiwania są niekompletne. Spróbuj innego zapytania."
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr "Data i godzina"
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr "Wybierz swoją strefę czasową"
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr "Obecna strefa czasowa:"
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr ""
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr "Układ klawiatury"
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr "Wybierz wszystkie preferowane przez ciebie układy klawiatury"
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr "Aplikacje"
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr "Wybierz aplikacje, które mają zostać zainstalowane."
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr "Podstawowe aplikacje"
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr "Przeglądarki"
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr "Dostosuj przeglądarki"
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr "Programy narzędziowe"
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr "Aplikacje biurowe"
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr "Wybierz aplikacje"
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr "Zatwierdź"
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr ""
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr ""
+
+#: snow_first_setup/window.py:79
+msgid "Details"
+msgstr "Szczegóły"
+
+#: snow_first_setup/window.py:85
+#, fuzzy
+msgid "Error log"
+msgstr "Błąd!"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr ""
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr ""
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr ""
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "Brak Połączenia z Internetem!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "Pierwsza konfiguracja wymaga aktywnego połączenia internetetowego"
+
+#: snow_first_setup/views/conn_check.py:79
+#, fuzzy
+msgid "Connection available"
+msgstr "Połączenie nieudane"
+
+#: snow_first_setup/views/conn_check.py:80
+#, fuzzy
+msgid "You have a working internet connection"
+msgstr "Brak Połączenia z Internetem!"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr "Klawiatura"
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr ""
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr ""
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr ""
+
+#: snow_first_setup/views/user.py:128
+#, fuzzy
+msgid "This username is already in use."
+msgstr "Twoje urządzenie jest gotowe do używania."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr "Region"
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr "Kraj"
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr ""
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr "Strefa czasowa"
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr ""
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr ""
+
+#: snow_first_setup/views/progress.py:97
+msgid "Installing"
+msgstr "Instalowanie"
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr "Europa"
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr "Azja"
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr "Ameryka"
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr "Afryka"
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr "Antarktyda"
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr "Australia"
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr "Arktyka"
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "Dostosuj swoją instalację Vanilla OS."
+
+#~ msgid "No description"
+#~ msgstr "Brak opisu"
+
+#~ msgid "First release"
+#~ msgstr "Pierwsze wydanie"
+
+#~ msgid "Internet"
+#~ msgstr "Internet"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "Połączenie z internetem jest wymagane, aby pobrać Twoje ulubione "
+#~ "aplikacje i aby Twój system był aktualny"
+
+#~ msgid "Wired"
+#~ msgstr "Przewodowe"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "Sieci bezprzewodowe"
+
+#~ msgid "Advanced"
+#~ msgstr "Zaawansowane"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "Połącz z ukrytą siecią..."
+
+#~ msgid "Default"
+#~ msgstr "Domyślny"
+
+#~ msgid "Welcome!"
+#~ msgstr "Witamy!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr "Uruchom ponownie komputer, aby zacząć cieszyć się z Vanilla OS"
+
+#~ msgid "Enable"
+#~ msgstr "Włącz"
+
+#~ msgid "Finalizing..."
+#~ msgstr "Finalizacja..."
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "Twoje urządzenie będzie wkrótce gotowe"
+
+#~ msgid "Show Console Output"
+#~ msgstr "Pokaż Wyjście Konsoli"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "Pokaż Pokaz Slajdów"
+
+#~ msgid "Read More"
+#~ msgstr "Czytaj Więcej"
+
+#~ msgid "Connected"
+#~ msgstr "Połączono"
+
+#, fuzzy
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "Zaczekaj, aż sprawdzanie połączenia zostanie zakończone."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "Niezabezpieczona sieć (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "Zabezpieczona sieć (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "Zabezpieczona sieć (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "Zabezpieczona sieć (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "Wymagane uwierzytelnienie"
+
+#~ msgid "Connecting"
+#~ msgstr "Łączenie"
+
+#~ msgid "Disconnected"
+#~ msgstr "Rozłączono"
+
+#~ msgid "Disconnecting"
+#~ msgstr "Rozłączanie"
+
+#, fuzzy
+#~ msgid "Status Unknown"
+#~ msgstr "Status nieznany"
+
+#~ msgid "Unmanaged"
+#~ msgstr "Niezarządzane"
+
+#~ msgid "Unavailable"
+#~ msgstr "Niedostępne"
+
+#~ msgid "Unknown"
+#~ msgstr "Nieznany"
+
+#, fuzzy
+#~ msgid "Cable Unplugged"
+#~ msgstr "Kabel odłączony"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "Wybierz co najmniej jedną opcję."
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr ""
+#~ "Uruchom ponownie urządzenie, aby cieszyć się doświadczeniami z Twoim {}."
+
+#~ msgid "Something went wrong"
+#~ msgstr "Coś poszło nie tak"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "Prosimy o kontakt z twórcami dystrybucji."
+
+#~ msgid "Run a post script"
+#~ msgstr "Uruchom skrypt końcowy"
+
+#~ msgid "Done!"
+#~ msgstr "Gotowe!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "Coś poszło nie tak."
+
+#~ msgid "Connect to the Internet"
+#~ msgstr "Połącz się z internetem"
+
+#~ msgid "All done!"
+#~ msgstr "Wszystko gotowe!"
+
+#~ msgid "Yes, enable it"
+#~ msgstr "Tak, włącz to"
+
+#~ msgid "The changes are being applied. Please Wait…"
+#~ msgstr "Zmiany są wprowadzane. Proszę czekać…"

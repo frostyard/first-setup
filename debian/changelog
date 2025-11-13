@@ -1,0 +1,162 @@
+snow-first-setup (3.1.0) unstable; urgency=medium
+
+- Added Decibles, OnlyOffice, Thunderbird and more Browsers to apps
+- Removed Gnome Music from apps
+- Downloads icons from Flathub instead of bundling them
+- Improved hostname validation
+
+-- Tau <info@vanillaos.org> Tue, 12 Mar 2025 17:27:00 +0000
+
+snow-first-setup (3.0.0) unstable; urgency=high
+
+- Completely reworked all components
+- Severily improved accessibility
+
+-- Tau <info@vanillaos.org> Tue, 18 Feb 2025 03:28:00 +0000
+
+snow-first-setup (2.2.4) unstable; urgency=critical
+
+- Improved network and connection checks
+- Fix logging in recipe
+- New translation updates
+
+-- Dharun Krishna <mail@kbdharun.dev> Thu, 24 Oct 2024 10:52:00 -0300
+
+snow-first-setup (2.2.3) unstable; urgency=critical
+
+- Fixed multi-user support
+
+-- Tau <info@vanillaos.org> Wed, 31 Jul 2024 10:52:00 -0300
+
+snow-first-setup (2.2.0) unstable; urgency=critical
+
+- Fine tune permissions
+
+-- Mateus Melchiades <matbme@duck.com> Fri, 26 Jul 2023 10:52:00 -0300
+
+snow-first-setup (2.1.0) unstable; urgency=critical
+
+- Add network step
+
+-- Mateus Melchiades <matbme@duck.com> Fri, 26 Jul 2023 10:52:00 -0300
+
+snow-first-setup (2.0.7) unstable; urgency=critical
+
+- Correctly use log_file variable from recipe
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 30 Jul 2023 19:18:00 -0300
+
+snow-first-setup (2.0.6) unstable; urgency=critical
+
+- Post script fixes
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 27 Jul 2023 10:35:00 -0300
+
+snow-first-setup (2.0.5) unstable; urgency=critical
+
+- Default user cleanup fixes
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 27 Jul 2023 09:04:00 -0300
+
+snow-first-setup (2.0.3) unstable; urgency=critical
+
+- Change log font
+- Use polkit for handling cleanup
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 26 Jul 2023 19:58:00 -0300
+
+snow-first-setup (2.0.2) unstable; urgency=critical
+
+- Complete Orchid port
+- Replace eog with Loupe
+- Add Epiplany as default browser
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 24 Jul 2023 18:34:00 -0300
+
+snow-first-setup (2.0.1) unstable; urgency=critical
+
+- Remove ubuntu-drivers-common dependency
+- Update recipe to use Debian packages
+
+-- Mateus Melchiades <matbme@duck.com> Mon, 20 Mar 2023 19:44:00 -0300
+
+snow-first-setup (2.0.0) unstable; urgency=critical
+
+- Express and Advanced mode
+- Custom GNOME session
+
+-- Mirko Brombin <send@mirko.pm> Mon, 27 Feb 2023 09:06:00 +0000
+
+snow-first-setup (1.7.4-2) lunar; urgency=critical
+
+- Fix CSS-provider getting too many arguments
+
+-- Mateus Melchiades <matbme@duck.com> Tue, 28 Feb 2023 19:21:00 -0300
+
+snow-first-setup (1.7.4) lunar; urgency=critical
+
+- gtk4 changes
+
+-- Mirko Brombin <send@mirko.pm> Mon, 27 Feb 2023 09:06:00 +0000
+
+snow-first-setup (1.7.3-1) lunar; urgency=critical
+
+- Updated translations
+
+-- Mirko Brombin <send@mirko.pm> Sat, 25 Feb 2023 23:04:00 +0000
+
+snow-first-setup (1.7.3) kinetic; urgency=critical
+
+- Updated translations
+
+-- Mirko Brombin <send@mirko.pm> Sat, 25 Feb 2023 23:04:00 +0000
+
+snow-first-setup (1.7.2-1) kinetic; urgency=critical
+
+- Log first setup completion
+
+-- Mirko Brombin <send@mirko.pm> Mon, 13 Feb 2023 22:46:00 +0000
+
+snow-first-setup (1.7.1) kinetic; urgency=critical
+
+- Make gnome-software mandatory
+
+-- Mirko Brombin <send@mirko.pm> Fri, 20 Jan 2023 21:06:00 +0000
+
+snow-first-setup (1.7.0-3) kinetic; urgency=critical
+
+- Transaction now runs in a Vte terminal
+- Ability to display the output while the transaction is running
+- Connection check is now part of the recipe
+
+-- Mirko Brombin <send@mirko.pm> Fri, 20 Jan 2023 21:06:00 +0000
+
+snow-first-setup (1.6.4-1) kinetic; urgency=high
+
+- Add Lutris and Heroic Games Launcher
+- Adapt to ABRoot 1.3.1
+
+-- Mirko Brombin <send@mirko.pm> Fri, 20 Jan 2023 21:06:00 +0000
+
+snow-first-setup (1.6.3) kinetic; urgency=critical
+
+- Better internet check
+- Add nvidia-prime for NVIDIA Optimus support
+- Update translations
+- Disable autostart on success
+- Hide desktop entry on success
+
+-- Mirko Brombin <send@mirko.pm> Thu, 29 Dec 2022 16:29:00 +0000
+
+snow-first-setup (1.6.0) kinetic; urgency=critical
+
+- Skip applications view with no pkg manager selected
+
+-- Mirko Brombin <send@mirko.pm> Thu, 29 Dec 2022 16:29:00 +0000
+
+snow-first-setup (1.5.9) kinetic; urgency=critical
+
+    * Fix reboot button not being hidden
+    * Add open-vm-tools-desktop to recipe.json
+
+-- Mirko Brombin <send@mirko.pm> Thu, 29 Dec 2022 14:35:00 +0000

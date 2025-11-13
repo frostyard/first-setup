@@ -1,0 +1,13 @@
+.vscode/
+mesonbuild/
+build/
+debian/files
+debian/snow-first-setup.debhelper.log
+debian/snow-first-setup
+debian/.debhelper
+*/__pycache__
+*.pyc
+snow_first_setup/snow-first-setup.gresource
+.buildconfig
+install/
+localegen/

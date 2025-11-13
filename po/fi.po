@@ -1,0 +1,529 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# Niila Magga <niila@runbox.com>, 2024.
+# Ricky Tigg <ricky.tigg@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2025-03-11 12:18+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/snow-os/first-"
+"setup/fi/>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "Vanilla OS ensiasennus"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "Takaisin"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "Seuraava"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "Valmista!"
+
+#: snow_first_setup/gtk/logout.ui:13
+msgid "Login to your new user"
+msgstr "Kirjaudu sisään uudelle käyttäjällesi"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr "Kirjaudu sisään nyt"
+
+#: snow_first_setup/gtk/done.ui:13
+msgid "Your user account is ready to use"
+msgstr "Käyttäjätilisi on valmis käytettäväksi"
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr "Ota esittelykierros"
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr "Poistu"
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr "Edistyminen"
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr "Jotkut vaiheet vievät vielä jonkin aikaa"
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Näytetään tietoja"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+msgid "Checking Connection"
+msgstr "Tarkistetaan yhteyttä"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Ole hyvä ja odota kunnes yhteyden tarkistus on valmis"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+msgid "Open Settings"
+msgstr "Avaa asetukset"
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "Ulkoasu"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "Valitse järjestelmäsi ulkoasu"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr "Vaalea tila"
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr "Vaalea"
+
+#: snow_first_setup/gtk/theme.ui:88
+msgid "Dark Mode"
+msgstr "Tumma tila"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "Tumma"
+
+#: snow_first_setup/gtk/welcome.ui:39
+msgid "Make your choices, this wizard will take care of everything"
+msgstr "Tee valintasi, tämä ohjattu toiminto huolehtii kaikesta"
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr "Aloita"
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr "Esteettömyys"
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+msgid "Let's set up your user account"
+msgstr "Määritetään käyttäjätilisi"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "Luo käyttäjätili"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "Määritä käyttäjätilisi yksityiskohdat"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "Nimi"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "Käyttäjänimi"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "Salasana"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "Vahvista salasana"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "Laitteen nimi"
+
+#: snow_first_setup/gtk/hostname.ui:14
+msgid "Name your device"
+msgstr "Nimeä laitteesi"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+"Isäntänimi voi sisältää vain pieniä aakkosnumeerisia merkkejä (a-z), "
+"pisteitä ja yhdysmerkkejä, enintään 64 merkkiä."
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr "Kieli"
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr "Valitse kieli"
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr "Etsi näppäimistöasetteluja"
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr "Hakutulokset ovat epätäydellisiä. Yritä tarkentaa kyselyäsi."
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr "Päivämäärä ja aika"
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr "Valitse aikavyöhyke"
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr "Nykyinen aikavyöhyke:"
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr "ei asetettu"
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr "Näppäimistöasettelu"
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr "Valitse kaikki näppäimistöasettelut"
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr "Sovellukset"
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr "Valitse asennettavat sovellukset."
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr "Ydinsovellukset"
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr "Tärkeimmät GNOME-sovellukset, kuten kalenteri tai asiakirjakatselu"
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr "Mukauta ydinsovelluksia"
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr "Selaimet"
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr "Mukauta selaimia"
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr "Yleiset apuohjelmat"
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr "Hyödyllisiä apuohjelmia parantaaksesi työpöytäkokemustasi"
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr "Mukauta apuohjelmia"
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr "Toimisto"
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr "LibreOffice-ohjelmisto"
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr "Mukauta toimistosovelluksia"
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr "Valitse sovellukset"
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr "Sovella"
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr "Valitse asennettavat sovellukset"
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr "Asettaminen epäonnistui: "
+
+#: snow_first_setup/window.py:79
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#: snow_first_setup/window.py:85
+msgid "Error log"
+msgstr "Virheloki"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr "Älä tee mitään muutoksia järjestelmään."
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr "Pakota järjestelmän määritystila, ryhmästä riippumaton."
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr "Pakota vakiotila, ryhmästä riippumaton."
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+"Käytä alkuperäisen laitteen valmistajan tilaa kielen, näppäimistön ja "
+"aikavyöhykkeen valinnassa."
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "Ei internet-yhteyttä!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "Ensiasennusta varten tarvitset toimivan internet-yhteyden"
+
+#: snow_first_setup/views/conn_check.py:79
+msgid "Connection available"
+msgstr "Yhteys saatavana"
+
+#: snow_first_setup/views/conn_check.py:80
+msgid "You have a working internet connection"
+msgstr "Sinulla on toimiva internetyhteys"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr "Näppäimistö"
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr "Käyttäjänimi ei voi olla tyhjä."
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr "Käyttäjänimi ei saa olla pidempi kuin 32 merkkiä."
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr "Käyttäjänimi ei saa sisältää erikoismerkkejä tai isoja kirjaimia."
+
+#: snow_first_setup/views/user.py:128
+msgid "This username is already in use."
+msgstr "Tämä käyttäjänimi on jo käytössä."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr "Alue"
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr "Maa"
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr "Hakutulokset"
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr "Aikavyöhyke"
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr "Hei {}!"
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr "Asetetaan järjestelmää"
+
+#: snow_first_setup/views/progress.py:97
+msgid "Installing"
+msgstr "Asennetaan"
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr "Eurooppa"
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr "Aasia"
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr "Amerikka"
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr "Afrikka"
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr "Etelämanner"
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr "Tyyni valtameri"
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr "Australia"
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr "Atlantin valtameri"
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr "Intian valtameri"
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr "Arktinen"
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "Tee Vanilla OS -asennuksestasi mieleisesi."
+
+#~ msgid "No description"
+#~ msgstr "Ei kuvausta"
+
+#~ msgid "First release"
+#~ msgstr "Ensimmäinen julkaisu"
+
+#~ msgid "Internet"
+#~ msgstr "Internet"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "Toimivaa internet-yhteyttä tarvitaan suosikkisovellustesi lataamiseen ja "
+#~ "järjestelmän ajan tasalla pitämiseen."
+
+#~ msgid "Wired"
+#~ msgstr "Langallinen yhteys"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "Langattomat verkot"
+
+#~ msgid "Advanced"
+#~ msgstr "Lisäasetukset"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "Yhdistä piilotettuun verkkoon…"
+
+#~ msgid "Default"
+#~ msgstr "Oletus"
+
+#~ msgid "Welcome!"
+#~ msgstr "Tervetuloa!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr "Käynnistä laitteesi uudelleen nauttiaksesi Vanilla OS -kokemuksesta"
+
+#~ msgid "Enable"
+#~ msgstr "Aktivoi"
+
+#~ msgid "Finalizing..."
+#~ msgstr "Viimeistellään…"
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "Laitteesi on pian valmis"
+
+#~ msgid "Show Console Output"
+#~ msgstr "Näytä komentorivin tiedot"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "Näytä diaesitys"
+
+#~ msgid "Read More"
+#~ msgstr "Lue lisää"
+
+#~ msgid "Connected"
+#~ msgstr "Yhteys muodostettu"
+
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "Ole hyvä ja odota kunnes yhteyden tarkistus on valmis."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "Heikon suojauksen verkko (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "Suojattu verkko (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "Suojattu verkko (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "Suojattu verkko  (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "Todentaminen vaaditaan"
+
+#~ msgid "Connecting"
+#~ msgstr "Muodostetaan yhteyttä"
+
+#~ msgid "Disconnected"
+#~ msgstr "Yhteys katkaistu"
+
+#~ msgid "Disconnecting"
+#~ msgstr "Katkaistaan yhteyttä"
+
+#~ msgid "Status Unknown"
+#~ msgstr "Yhteyden tila ei tiedossa"
+
+#~ msgid "Unmanaged"
+#~ msgstr "Hallinnoimaton"
+
+#~ msgid "Unavailable"
+#~ msgstr "Ei saatavilla"
+
+#~ msgid "Unknown"
+#~ msgstr "Tuntematon"
+
+#~ msgid "Cable Unplugged"
+#~ msgstr "Kaapeli irroitettu"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "Valitse vähintään yksi vaihtoehto"
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr "Käynnistä laitteesi uudelleen nauttiaksesi {} -kokemuksesta."
+
+#~ msgid "Something went wrong"
+#~ msgstr "Jokin meni vikaan"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "Ota yhteyttä Vanilla OS:n kehittäjiin."
+
+#~ msgid "Run a post script"
+#~ msgstr "Suorita jälkikäsittelyskripti"
+
+#~ msgid "Done!"
+#~ msgstr "Valmista!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "Jokin meni vikaan."

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaTimezone" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <child>
+      <object class="AdwToolbarView">
+        <property name="content">
+          <object class="AdwStatusPage" id="status_page">
+            <property name="icon-name">preferences-system-time-symbolic</property>
+            <property name="title" translatable="yes">Date &amp; Time</property>
+            <property name="description" translatable="yes">Select your preferred timezone</property>
+          </object>
+        </property>
+        <child type="bottom">
+          <object class="GtkActionBar" id="footer">
+            <property name="revealed">true</property>
+            <property name="valign">2</property>
+            <style>
+              <class name="toolbar"/>
+            </style>
+            <child type="center">
+              <object class="GtkBox">
+                <property name="orientation">0</property>
+                <property name="halign">3</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Current timezone:</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="current_timezone_label">
+                    <property name="label" translatable="yes">not set</property>
+                    <style>
+                      <class name="heading"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="current_time_label"></object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

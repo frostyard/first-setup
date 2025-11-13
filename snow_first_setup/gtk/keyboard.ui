@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaKeyboard" parent="AdwBin">
+    <child>
+      <object class="AdwToolbarView">
+        <property name="content">
+          <object class="AdwStatusPage" id="status_page">
+            <property name="icon-name">input-keyboard-symbolic</property>
+            <property name="title" translatable="yes">Keyboard Layout</property>
+            <property name="description" translatable="yes">Select all your preferred keyboard layouts</property>
+          </object>
+        </property>
+        <child type="bottom">
+          <object class="GtkActionBar">
+            <style>
+              <class name="toolbar"/>
+            </style>
+            <child type="center">
+              <object class="AdwClamp">
+                <property name="maximum-size">600</property>
+                <property name="width-request">600</property>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwEntryRow">
+                        <property name="title">Test your keyboard</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

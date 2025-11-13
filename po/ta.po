@@ -1,0 +1,547 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# "K.B.Dharun Krishna" <kbdharunkrishna@gmail.com>, 2023, 2024.
+# தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2025-04-20 17:17+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/snow-os/"
+"first-setup/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.1-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "வெண்ணிலா OS முதல் அமைப்பு"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "திரும்பவும்"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "அடுத்தது"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "முடிந்துவிட்டது!"
+
+#: snow_first_setup/gtk/logout.ui:13
+msgid "Login to your new user"
+msgstr "உங்கள் புதிய பயனருக்கு உள்நுழைக"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr "இப்போது உள்நுழைக"
+
+#: snow_first_setup/gtk/done.ui:13
+msgid "Your user account is ready to use"
+msgstr "உங்கள் பயனர் கணக்கு பயன்படுத்த தயாராக உள்ளது"
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr "ஒரு சுற்றுப்பயணம் மேற்கொள்ளுங்கள்"
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr "வெளியேறு"
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr "முன்னேற்றம்"
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr "சில படிகள் இன்னும் சிறிது நேரம் ஆகும்"
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "தகவலைக் காட்டுகிறது"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+msgid "Checking Connection"
+msgstr "இணைப்பைச் சரிபார்க்கிறது"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "இணைப்புச் சரிபார்ப்பு முடியும் வரை காத்திருக்கவும்"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+msgid "Open Settings"
+msgstr "திறந்த அமைப்புகள்"
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "வண்ண திட்டம்"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "உங்கள் கணினிக்கான வண்ணத் திட்டத்தைத் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr "ஒளி பயன்முறை"
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr "ஒளி"
+
+#: snow_first_setup/gtk/theme.ui:88
+msgid "Dark Mode"
+msgstr "இருண்ட முறை"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "இருள்"
+
+#: snow_first_setup/gtk/welcome.ui:39
+msgid "Make your choices, this wizard will take care of everything"
+msgstr "உங்கள் தேர்வுகளைச் செய்யுங்கள், இந்த வழிகாட்டி எல்லாவற்றையும் கவனித்துக்கொள்வார்"
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr "தொடங்கு"
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr "அணுகல்"
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+msgid "Let's set up your user account"
+msgstr "உங்கள் பயனர் கணக்கை அமைப்போம்"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "பயனரை உருவாக்கவும்"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "உங்கள் பயனர் கணக்கிற்கான விவரங்களை வழங்கவும்"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "பெயர்"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "பயனர் பெயர்"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "கடவுச்சொல்லை உறுதிப்படுத்தவும்"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "சாதனத்தின் பெயர்"
+
+#: snow_first_setup/gtk/hostname.ui:14
+msgid "Name your device"
+msgstr "உங்கள் சாதனத்திற்கு பெயரை இடு"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+"ஹோஸ்ட்பெயரில் சிற்றெழுத்து எண்ணெழுத்து எழுத்துகள் (az), முற்றுப்புள்ளிகள் மற்றும் ஹைபன்கள் "
+"மட்டுமே இருக்க வேண்டும், அதிகபட்சம் 64 எழுத்துகள் வரை."
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr "மொழி"
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr "விசைப்பலகை தளவமைப்புகளைத் தேடுங்கள்"
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr "தேடல் முடிவுகள் முழுமையடையாது. உங்கள் வினவலைச் செம்மைப்படுத்த முயற்சிக்கவும்."
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr "தேதி & நேரம்"
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr "உங்களுக்கு விருப்பமான நேர மண்டலத்தைத் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr "தற்போதைய நேர மண்டலம்:"
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr "அமைக்கப்படவில்லை"
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr "விசைப்பலகை தளவமைப்பு"
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr "நீங்கள் விரும்பும் அனைத்து விசைப்பலகை தளவமைப்புகளையும் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr "பயன்பாடுகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr "எந்த பயன்பாடுகளை நிறுவ வேண்டும் என்பதைத் தேர்வுசெய்க."
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr "முக்கிய பயன்பாடுகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr "காலண்டர் அல்லது ஆவண பார்வையாளர் போன்ற அத்தியாவசிய சினோம் பயன்பாடுகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr "முக்கிய பயன்பாடுகளைத் தனிப்பயனாக்குங்கள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr "உலாவிகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr "உலாவிகளைத் தனிப்பயனாக்குங்கள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr "பொதுவான பயன்பாடுகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr "உங்கள் டெச்க்டாப் அனுபவத்தை மேம்படுத்த பயனுள்ள பயன்பாடுகள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr "பயன்பாடுகளைத் தனிப்பயனாக்குங்கள்"
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr "அலுவலகம்"
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr "லிப்ரேஃபிச் சூட்"
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr "அலுவலக விண்ணப்பங்களைத் தனிப்பயனாக்குங்கள்"
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr "பயன்பாடுகளைத் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr "இடு"
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr "நீங்கள் நிறுவ விரும்பும் பயன்பாடுகளைத் தேர்ந்தெடுக்கவும்"
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr "அமைப்பு தோல்வியுற்றது: "
+
+#: snow_first_setup/window.py:79
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#: snow_first_setup/window.py:85
+msgid "Error log"
+msgstr "பிழை பதிவு"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr "கணினியில் எந்த மாற்றமும் செய்ய வேண்டாம்."
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr "குழுவின் சுயாதீனமான கணினி பயன்முறையை உள்ளமைக்க கட்டாயப்படுத்துங்கள்."
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr "குழுவிலிருந்து சுயாதீனமான வழக்கமான பயன்முறையை கட்டாயப்படுத்துங்கள்."
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+"மொழி, விசைப்பலகை மற்றும் நேர மண்டல தேர்வுடன் அசல் உபகரண உற்பத்தியாளர் பயன்முறையைப் "
+"பயன்படுத்தவும்."
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "இணைய இணைப்பு இல்லை!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "முதல் அமைப்பிற்கு செயலில் உள்ள இணைய இணைப்பு தேவை"
+
+#: snow_first_setup/views/conn_check.py:79
+msgid "Connection available"
+msgstr "இணைப்பு கிடைக்கிறது"
+
+#: snow_first_setup/views/conn_check.py:80
+msgid "You have a working internet connection"
+msgstr "உங்களிடம் வேலை செய்யும் இணைய இணைப்பு உள்ளது"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr "விசைப்பலகை"
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr "பயனர்பெயர் காலியாக இருக்க முடியாது."
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr "பயனர்பெயர் 32 எழுத்துக்களை விட நீளமாக இருக்க முடியாது."
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr "பயனர்பெயரில் சிறப்பு எழுத்துக்கள் அல்லது பெரிய எழுத்துக்கள் இருக்க முடியாது."
+
+#: snow_first_setup/views/user.py:128
+msgid "This username is already in use."
+msgstr "இந்த பயனர்பெயர் ஏற்கனவே பயன்பாட்டில் உள்ளது."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr "பகுதி"
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr "நாடு"
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr "தேடல் முடிவுகள்"
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr "நேர மண்டலம்"
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr "வணக்கம் {}!"
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr "கணினியை அமைத்தல்"
+
+#: snow_first_setup/views/progress.py:97
+msgid "Installing"
+msgstr "நிறுவுகிறது"
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr "ஐரோப்பா"
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr "ஆசியா"
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr "அமெரிக்கா"
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr "ஆப்பிரிக்கா"
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr "அண்டார்ட்டிக்கா"
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr "பசிபிக் பெருங்கடல்"
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr "ஆச்திரேலியா"
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr "அட்லாண்டிக் பெருங்கடல்"
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr "இந்தியப் பெருங்கடல்"
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr "ஆர்க்டிக்"
+
+#~ msgid ""
+#~ "Hostname can only contain up to 64 English lowercase letters with hyphens "
+#~ "in-between."
+#~ msgstr ""
+#~ "ஓச்ட்பெயரில் 64 ஆங்கில சிறிய எழுத்துக்கள் வரை மட்டுமே ஐஃபன்ச் வரை இருக்க முடியும்."
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "உங்கள் வெண்ணிலா OS நிறுவலை மாற்றி அமையுங்கள்."
+
+#~ msgid "No description"
+#~ msgstr "விளக்கம் இல்லை"
+
+#~ msgid "First release"
+#~ msgstr "முதல் வெளியீடு"
+
+#~ msgid "Internet"
+#~ msgstr "இணையதளம்"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "உங்களுக்குப் பிடித்த பயன்பாடுகளை பதிவிறக்கவும், உங்கள் அமைப்பை புதுப்பித்த நிலையில் "
+#~ "வைத்திருக்கவும் செயலில் உள்ள இணைய இணைப்பு தேவை"
+
+#~ msgid "Wired"
+#~ msgstr "கம்பியுடையது"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "கம்பியில்லா பிணையங்கள்"
+
+#~ msgid "Advanced"
+#~ msgstr "மேம்பட்டது"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "மறைக்கப்பட்ட பிணையத்துடன் இணைக்கவும்..."
+
+#~ msgid "Default"
+#~ msgstr "இயல்புநிலை"
+
+#~ msgid "Welcome!"
+#~ msgstr "வரவேற்கிறோம்!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr "உங்கள் வெண்ணிலா OS அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்"
+
+#~ msgid "Enable"
+#~ msgstr "இயக்கு"
+
+#~ msgid "Finalizing..."
+#~ msgstr "இறுதி செய்கிறது..."
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "உங்கள் சாதனம் விரைவில் தயாராகிவிடும்"
+
+#~ msgid "Show Console Output"
+#~ msgstr "கன்சோல் வெளியீட்டைக் காட்டு"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "ஸ்லைடுஷோவைக் காட்டு"
+
+#~ msgid "Read More"
+#~ msgstr "மேலும் படிக்கவும்"
+
+#~ msgid "Connected"
+#~ msgstr "இணைக்கப்பட்டது"
+
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "இணைப்புச் சரிபார்ப்பு முடியும் வரை காத்திருக்கவும்."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "பாதுகாப்பற்ற வலைப்பின்னல் (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "பாதுகாப்பான வலைப்பின்னல் (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "அங்கீகாரம் தேவை"
+
+#~ msgid "Connecting"
+#~ msgstr "இணைக்கிறது"
+
+#~ msgid "Disconnected"
+#~ msgstr "இணைப்பு துண்டிக்கப்பட்டது"
+
+#~ msgid "Disconnecting"
+#~ msgstr "இணைப்பைத் துண்டிக்கிறது"
+
+#~ msgid "Status Unknown"
+#~ msgstr "நிலை தெரியவில்லை"
+
+#~ msgid "Unmanaged"
+#~ msgstr "நிர்வகிக்கப்படாதது"
+
+#~ msgid "Unavailable"
+#~ msgstr "கிடைக்கவில்லை"
+
+#~ msgid "Unknown"
+#~ msgstr "தெரியவில்லை"
+
+#~ msgid "Cable Unplugged"
+#~ msgstr "கம்பி துண்டிக்கப்பட்டது"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "குறைந்தபட்சம் ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்."
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr "உங்கள் {} அனுபவத்தை அனுபவிக்க உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும்."
+
+#~ msgid "Something went wrong"
+#~ msgstr "ஏதோ தவறாகிவிட்டது"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "விநியோக டெவலப்பர்களைத் தொடர்பு கொள்ளவும்."
+
+#~ msgid "Run a post script"
+#~ msgstr "இடுகை ஸ்கிரிப்டை இயக்கவும்"
+
+#~ msgid "Done!"
+#~ msgstr "முடிந்தது!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "ஏதோ தவறாகிவிட்டது."
+
+#~ msgid "Connect to the Internet"
+#~ msgstr "இணையத்துடன் இணைக்கவும்"
+
+#~ msgid "All done!"
+#~ msgstr "அனைத்தும் முடிந்தது!"
+
+#~ msgid "Yes, enable it"
+#~ msgstr "ஆம், அதை இயக்கு"
+
+#~ msgid "The changes are being applied. Please Wait…"
+#~ msgstr "மாற்றங்கள் செயல்படுத்தப்படுகின்றன. தயவுசெய்து காத்திருங்கள்…"

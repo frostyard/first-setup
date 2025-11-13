@@ -1,0 +1,545 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# Serhii Chebanenko <4e6anenk0@gmail.com>, 2023.
+# Dan <denqwerta@gmail.com>, 2023.
+# Dan <jonweblin2205@protonmail.com>, 2023, 2025.
+# andrij <Kalenskuja@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2025-03-16 19:19+0000\n"
+"Last-Translator: Dan <jonweblin2205@protonmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/snow-os/"
+"first-setup/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.11-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "Перше налаштування Vanilla OS"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "Назад"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "Далі"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "Завершено!"
+
+#: snow_first_setup/gtk/logout.ui:13
+msgid "Login to your new user"
+msgstr "Увійти як новий користувач"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr "Увійти зараз"
+
+#: snow_first_setup/gtk/done.ui:13
+msgid "Your user account is ready to use"
+msgstr "Ваш обліковий запис користувача готовий до використання"
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr "Переглянути вступ"
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr "Вийти"
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr "Прогрес"
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr "Це може зайняти деякий час"
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Відображення інформації"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+msgid "Checking Connection"
+msgstr "Перевірка з'єднання"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Зачекайте, поки завершиться перевірка з'єднання"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+msgid "Open Settings"
+msgstr "Відкрити налаштування"
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "Колірна схема"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "Виберіть колірну схему для вашої системи"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr "Світлий режим"
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr "Світлий"
+
+#: snow_first_setup/gtk/theme.ui:88
+msgid "Dark Mode"
+msgstr "Темний режим"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "Темний"
+
+#: snow_first_setup/gtk/welcome.ui:39
+msgid "Make your choices, this wizard will take care of everything"
+msgstr "Зробіть вибір, а ми подбаємо про все"
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr "Розпочати"
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr "Доступність"
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+msgid "Let's set up your user account"
+msgstr "Налаштуймо ваш обліковий запис"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "Створити користувача"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "Надайте відомості про свій обліковий запис користувача"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "Назва"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "Ім'я користувача"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "Пароль"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "Підтвердити пароль"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "Назва пристрою"
+
+#: snow_first_setup/gtk/hostname.ui:14
+msgid "Name your device"
+msgstr "Назвіть свій пристрій"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+"Ім'я власника може містити лише малі літери (a-z), крапки та дефіси, "
+"максимум 64 символи."
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr "Мова"
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr "Виберіть мову"
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr "Шукати розкладки клавіатури"
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr "Результати пошуку неповні. Спробуйте уточнити запит."
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr "Дата та час"
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr "Оберіть бажаний часовий пояс"
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr "Поточний часовий пояс:"
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr "не встановлено"
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr "Розкладка клавіатури"
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr "Виберіть всі бажані розкладки клавіатури"
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr "Застосунки"
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr "Виберіть, які застосунки встановити."
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr "Основні застосунки"
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr "Основні застосунки GNOME, такі як Календар або Переглядач документів"
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr "Налаштувати основні застосунки"
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr "Браузери"
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr "Налаштувати браузери"
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr "Базові утиліти"
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr "Корисні утиліти для покращення роботи на робочому столі"
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr "Налаштувати утиліти"
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr "Офіс"
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr "Пакет LibreOffice"
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr "Налаштувати офісні застосунки"
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr "Вибрати застосунки"
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr "Застосувати"
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr "Виберіть Застосунком, які хочете встановити"
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr "Не вдалося встановити: "
+
+#: snow_first_setup/window.py:79
+msgid "Details"
+msgstr "Подробиці"
+
+#: snow_first_setup/window.py:85
+msgid "Error log"
+msgstr "Журнал помилок"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr "Не вносьте жодних змін до системи."
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr "Примусово налаштувати системний режим, незалежний від групи."
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr "Увімкнути звичайний режим, незалежно від групи."
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+"Використовувати режим виробника обладнання з вибором мови, клавіатури та "
+"часового поясу."
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "Немає мережевого з'єднання!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "Для першого налаштування потрібне активне мережеве з'єднання"
+
+#: snow_first_setup/views/conn_check.py:79
+msgid "Connection available"
+msgstr "Доступне з'єднання"
+
+#: snow_first_setup/views/conn_check.py:80
+msgid "You have a working internet connection"
+msgstr "Немає мережевого з'єднання"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr "Клавіатура"
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr "Ім'я користувача не може бути порожнім."
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr "Ім'я користувача не може бути довшим за 32 символи."
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr ""
+"Ім'я користувача не може містити спеціальних символів або великих літер."
+
+#: snow_first_setup/views/user.py:128
+msgid "This username is already in use."
+msgstr "Це ім'я вже використовується."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr "Регіон"
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr "Країна"
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr "Результати пошуку"
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr "Часовий пояс"
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr "Вітаємо, {}!"
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr "Налагодження системи"
+
+#: snow_first_setup/views/progress.py:97
+msgid "Installing"
+msgstr "Встановлення"
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr "Європа"
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr "Азія"
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr "Америка"
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr "Африка"
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr "Антарктика"
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr "Тихий океан"
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr "Австралія"
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr "Атлантичний океан"
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr "Індійський океан"
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr "Арктика"
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "Налаштуйте встановлення Vanilla OS."
+
+#~ msgid "No description"
+#~ msgstr "Без опису"
+
+#~ msgid "First release"
+#~ msgstr "Перший реліз"
+
+#~ msgid "Internet"
+#~ msgstr "Інтернет"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "Потрібне активне з'єднання з Інтернетом, для завантаження ваших улюблених "
+#~ "програм та оновлення системи"
+
+#~ msgid "Wired"
+#~ msgstr "Дротовий"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "Бездротові мережі"
+
+#~ msgid "Advanced"
+#~ msgstr "Розширені"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "З'єднання з прихованою мережою..."
+
+#~ msgid "Default"
+#~ msgstr "Стандартна"
+
+#~ msgid "Welcome!"
+#~ msgstr "Ласкаво просимо!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr "Перезавантажте свій пристрій, щоб насолодитися роботою з Vanilla OS"
+
+#~ msgid "Enable"
+#~ msgstr "Увімкнути"
+
+#~ msgid "Finalizing..."
+#~ msgstr "Завершуємо…"
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "Ваш пристрій незабаром буде готовий"
+
+#~ msgid "Show Console Output"
+#~ msgstr "Показати вивід консолі"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "Показ слайдів"
+
+#~ msgid "Read More"
+#~ msgstr "Докладніше"
+
+#~ msgid "Connected"
+#~ msgstr "З'єднано"
+
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "Будь ласка, зачекайте, поки завершиться перевірка з'єднання."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "Небезпечна мережа (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "Безпечна мережа (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "Безпечна мережа (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "Безпечна мережа (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "Необхідна авторизація"
+
+#~ msgid "Connecting"
+#~ msgstr "З'єднання"
+
+#~ msgid "Disconnected"
+#~ msgstr "Від'єднано"
+
+#~ msgid "Disconnecting"
+#~ msgstr "Від'єднання"
+
+#~ msgid "Status Unknown"
+#~ msgstr "Статус невідомий"
+
+#~ msgid "Unmanaged"
+#~ msgstr "Не керується"
+
+#~ msgid "Unavailable"
+#~ msgstr "Недоступно"
+
+#~ msgid "Unknown"
+#~ msgstr "Невідомо"
+
+#~ msgid "Cable Unplugged"
+#~ msgstr "Кабель від'єднано"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "Виберіть принаймні один варіант."
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr "Перезапустіть пристрій, щоб насолоджуватися {}."
+
+#~ msgid "Something went wrong"
+#~ msgstr "Щось пішло не так"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "Будь ласка, зверніться до розробників дистрибутива."
+
+#~ msgid "Run a post script"
+#~ msgstr "Запустити пост-сценарій"
+
+#~ msgid "Done!"
+#~ msgstr "Готово!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "Щось пішло не так."
+
+#~ msgid "Connect to the Internet"
+#~ msgstr "З'єднання з Інтернетом"
+
+#~ msgid "All done!"
+#~ msgstr "Готово!"
+
+#~ msgid "Yes, enable it"
+#~ msgstr "Так, увімкнути"
+
+#~ msgid "The changes are being applied. Please Wait…"
+#~ msgstr "Зміни застосовуються. Зачекайте, будь ласка…"

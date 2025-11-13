@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=SNOW First Setup
+Exec=snow-first-setup
+Icon=org.frostyard.FirstSetup
+Terminal=false
+Type=Application
+Categories=System;GTK;
+StartupNotify=true
+NoDisplay=true

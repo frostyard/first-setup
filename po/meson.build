@@ -1,0 +1,1 @@
+i18n.gettext('snow-first-setup', preset: 'glib')

@@ -1,0 +1,561 @@
+# Romanian translations for snow-first-setup package.
+# Copyright (C) 2022 THE snow-first-setup'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snow-first-setup package.
+# Automatically generated, 2022.
+#
+# Matt C <matei.gurzu@gmail.com>, 2023.
+# Gabriel C <me@gabs.eu.org>, 2023.
+# supernova <driedpampas@users.noreply.hosted.weblate.org>, 2023, 2024.
+# Alex Pascu <salutcristi@gmail.com>, 2024.
+# Cristi Rus <salutcristi@gmail.com>, 2024.
+# supernova <76390419+driedpampas@users.noreply.github.com>, 2024.
+# Andrea Andre <andrea.tsg19@slmail.me>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: snow-first-setup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-07 10:11+0100\n"
+"PO-Revision-Date: 2024-10-25 13:15+0000\n"
+"Last-Translator: Andrea Andre <andrea.tsg19@slmail.me>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/snow-os/"
+"first-setup/ro/>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 5.8.2-dev\n"
+
+#: data/org.frostyard.FirstSetup.desktop.in:2
+msgid "Vanilla OS First Setup"
+msgstr "Prima pornire Vanilla OS"
+
+#: snow_first_setup/gtk/window.ui:25
+msgid "Back"
+msgstr "Înapoi"
+
+#: snow_first_setup/gtk/window.ui:39 snow_first_setup/gtk/window.ui:55
+msgid "Next"
+msgstr "Următorul"
+
+#: snow_first_setup/gtk/logout.ui:12 snow_first_setup/gtk/done.ui:12
+msgid "Finished!"
+msgstr "Terminat!"
+
+#: snow_first_setup/gtk/logout.ui:13
+#, fuzzy
+msgid "Login to your new user"
+msgstr "Rulează ca utilizator nou"
+
+#: snow_first_setup/gtk/logout.ui:23
+msgid "Login Now"
+msgstr ""
+
+#: snow_first_setup/gtk/done.ui:13
+#, fuzzy
+msgid "Your user account is ready to use"
+msgstr "Dispozitivul tău este gata de folosire."
+
+#: snow_first_setup/gtk/done.ui:29
+msgid "Take a tour"
+msgstr ""
+
+#: snow_first_setup/gtk/done.ui:40
+msgid "Exit"
+msgstr ""
+
+#: snow_first_setup/gtk/progress.ui:9
+msgid "Progress"
+msgstr ""
+
+#: snow_first_setup/gtk/progress.ui:10
+msgid "Some steps still take some time"
+msgstr ""
+
+#: snow_first_setup/gtk/dialog.ui:6
+msgid "Showing Information"
+msgstr "Se arată informații"
+
+#: snow_first_setup/gtk/conn-check.ui:12
+#, fuzzy
+msgid "Checking Connection"
+msgstr "Se verifică conexiunea…"
+
+#: snow_first_setup/gtk/conn-check.ui:13
+msgid "Please wait until the connection check is done"
+msgstr "Așteaptă până se termină verificarea conexiunii"
+
+#: snow_first_setup/gtk/conn-check.ui:16
+#, fuzzy
+msgid "Open Settings"
+msgstr "Deschide setările proxy..."
+
+#: snow_first_setup/gtk/theme.ui:13
+msgid "Color Scheme"
+msgstr "Schema de culoare"
+
+#: snow_first_setup/gtk/theme.ui:14
+msgid "Choose a color scheme for your system"
+msgstr "Alege schema de culoare pentru sistemul tău"
+
+#: snow_first_setup/gtk/theme.ui:41
+msgid "Light Mode"
+msgstr ""
+
+#: snow_first_setup/gtk/theme.ui:79
+msgid "Light"
+msgstr ""
+
+#: snow_first_setup/gtk/theme.ui:88
+#, fuzzy
+msgid "Dark Mode"
+msgstr "Întunecat"
+
+#: snow_first_setup/gtk/theme.ui:127
+msgid "Dark"
+msgstr "Întunecat"
+
+#: snow_first_setup/gtk/welcome.ui:39
+#, fuzzy
+msgid "Make your choices, this wizard will take care of everything"
+msgstr ""
+"Alege opțiunile potrivite și programul de instalare va avea grijă de tot."
+
+#: snow_first_setup/gtk/welcome.ui:52
+#: snow_first_setup/gtk/welcome-user.ui:21
+msgid "Start"
+msgstr ""
+
+#: snow_first_setup/gtk/welcome.ui:62
+#: snow_first_setup/gtk/welcome-user.ui:31
+msgid "Accessibility"
+msgstr ""
+
+#: snow_first_setup/gtk/welcome-user.ui:13
+#, fuzzy
+msgid "Let's set up your user account"
+msgstr "Specifică detalii pentru contul tău de utilizator"
+
+#: snow_first_setup/gtk/user.ui:23
+msgid "Create User"
+msgstr "Crează utilizator"
+
+#: snow_first_setup/gtk/user.ui:24
+msgid "Provide details for your user account"
+msgstr "Specifică detalii pentru contul tău de utilizator"
+
+#: snow_first_setup/gtk/user.ui:31
+msgid "Name"
+msgstr "Nume"
+
+#: snow_first_setup/gtk/user.ui:38
+msgid "Username"
+msgstr "Nume de utilizator"
+
+#: snow_first_setup/gtk/user.ui:45
+msgid "Password"
+msgstr "Parolă"
+
+#: snow_first_setup/gtk/user.ui:51
+msgid "Confirm Password"
+msgstr "Confirmă parola"
+
+#: snow_first_setup/gtk/hostname.ui:13
+#: snow_first_setup/gtk/hostname.ui:21
+msgid "Device Name"
+msgstr "Numele dispozitivului"
+
+#: snow_first_setup/gtk/hostname.ui:14
+#, fuzzy
+#| msgid "Provide your device name"
+msgid "Name your device"
+msgstr "Furnizează numele dispozitivului tău"
+
+#: snow_first_setup/gtk/hostname.ui:31
+msgid ""
+"Hostname can only contain lowercase alphanumeric characters (a-z), periods "
+"and hyphens, up to a maximum of 64 characters."
+msgstr ""
+
+#: snow_first_setup/gtk/language.ui:10
+#: snow_first_setup/views/language.py:36
+msgid "Language"
+msgstr ""
+
+#: snow_first_setup/gtk/language.ui:11
+msgid "Select your language"
+msgstr ""
+
+#: snow_first_setup/gtk/location.ui:15
+msgid "Search keyboard layouts"
+msgstr ""
+
+#: snow_first_setup/gtk/location.ui:24
+msgid "The search results are incomplete. Try refining your query."
+msgstr ""
+
+#: snow_first_setup/gtk/timezone.ui:11
+msgid "Date & Time"
+msgstr ""
+
+#: snow_first_setup/gtk/timezone.ui:12
+msgid "Select your preferred timezone"
+msgstr ""
+
+#: snow_first_setup/gtk/timezone.ui:29
+msgid "Current timezone:"
+msgstr ""
+
+#: snow_first_setup/gtk/timezone.ui:34
+msgid "not set"
+msgstr ""
+
+#: snow_first_setup/gtk/keyboard.ui:10
+msgid "Keyboard Layout"
+msgstr ""
+
+#: snow_first_setup/gtk/keyboard.ui:11
+msgid "Select all your preferred keyboard layouts"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:15
+msgid "Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:16
+msgid "Choose which applications to install."
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:30
+msgid "Core Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:31
+#: snow_first_setup/gtk/layout-applications.ui:56
+msgid "Essential GNOME apps like Calendar or Document Viewer"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:45
+msgid "Customize Core Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:55
+msgid "Browsers"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:70
+msgid "Customize Browsers"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:80
+msgid "Common Utilities"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:81
+msgid "Useful utilities to enhance your desktop experience"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:95
+msgid "Customize Utilities"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:105
+msgid "Office"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:106
+msgid "The LibreOffice suite"
+msgstr ""
+
+#: snow_first_setup/gtk/layout-applications.ui:120
+msgid "Customize Office Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/applications-dialog.ui:8
+msgid "Select Applications"
+msgstr ""
+
+#: snow_first_setup/gtk/applications-dialog.ui:18
+msgid "Apply"
+msgstr ""
+
+#: snow_first_setup/gtk/applications-dialog.ui:30
+msgid "Select the applications you want to install"
+msgstr ""
+
+#: snow_first_setup/window.py:74
+msgid "Setup failed: "
+msgstr ""
+
+#: snow_first_setup/window.py:79
+#, fuzzy
+msgid "Details"
+msgstr "Detalii dispozitiv"
+
+#: snow_first_setup/window.py:85
+#, fuzzy
+msgid "Error log"
+msgstr "Eroare!"
+
+#: snow_first_setup/application.py:76
+msgid "Don't make any changes to the system."
+msgstr ""
+
+#: snow_first_setup/application.py:84
+msgid "Force the configure system mode, independant of group."
+msgstr ""
+
+#: snow_first_setup/application.py:92
+msgid "Force the regular mode, independant of group."
+msgstr ""
+
+#: snow_first_setup/application.py:100
+msgid ""
+"Use the original equipment manufacturer mode with language, keyboard and "
+"timezone selection."
+msgstr ""
+
+#: snow_first_setup/views/conn_check.py:72
+msgid "No Internet Connection!"
+msgstr "Fară conexiune la internet!"
+
+#: snow_first_setup/views/conn_check.py:73
+msgid "First Setup requires an active internet connection"
+msgstr "Prima parte a configurării necesită o conexiune de internet activă"
+
+#: snow_first_setup/views/conn_check.py:79
+#, fuzzy
+msgid "Connection available"
+msgstr "Conectare eșuată"
+
+#: snow_first_setup/views/conn_check.py:80
+#, fuzzy
+msgid "You have a working internet connection"
+msgstr "Fară conexiune la internet!"
+
+#: snow_first_setup/views/keyboard.py:37
+msgid "Keyboard"
+msgstr ""
+
+#: snow_first_setup/views/user.py:118
+msgid "Username cannot be empty."
+msgstr ""
+
+#: snow_first_setup/views/user.py:121
+msgid "Username cannot be longer than 32 characters."
+msgstr ""
+
+#: snow_first_setup/views/user.py:124
+msgid "Username cannot contain special characters or uppercase letters."
+msgstr ""
+
+#: snow_first_setup/views/user.py:128
+#, fuzzy
+msgid "This username is already in use."
+msgstr "Dispozitivul tău este gata de folosire."
+
+#: snow_first_setup/views/locations.py:220
+msgid "Region"
+msgstr ""
+
+#: snow_first_setup/views/locations.py:238
+msgid "Country"
+msgstr ""
+
+#: snow_first_setup/views/locations.py:327
+msgid "Search results"
+msgstr ""
+
+#: snow_first_setup/views/timezone.py:39
+msgid "Timezone"
+msgstr ""
+
+#: snow_first_setup/views/welcome_user.py:45
+msgid "Hello {}!"
+msgstr ""
+
+#: snow_first_setup/views/progress.py:94
+msgid "Setting up the system"
+msgstr ""
+
+#: snow_first_setup/views/progress.py:97
+#, fuzzy
+msgid "Installing"
+msgstr "Se instalează..."
+
+#: snow_first_setup/core/timezones.py:92
+msgid "Europe"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:93
+msgid "Asia"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:94
+msgid "America"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:95
+msgid "Africa"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:96
+msgid "Antarctica"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:97
+msgid "Pacific Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:98
+msgid "Australia"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:99
+msgid "Atlantic Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:100
+msgid "Indian Ocean"
+msgstr ""
+
+#: snow_first_setup/core/timezones.py:101
+msgid "Arctic"
+msgstr ""
+
+#~ msgid "Tweak your Vanilla OS installation."
+#~ msgstr "Modifică-ți instalarea Vanilla OS."
+
+#~ msgid "No description"
+#~ msgstr "Fără descriere"
+
+#~ msgid "First release"
+#~ msgstr "Prima versiune"
+
+#~ msgid "Internet"
+#~ msgstr "Internet"
+
+#~ msgid ""
+#~ "An active internet connection is required to download your favorite apps "
+#~ "and to keep your system up-to-date"
+#~ msgstr ""
+#~ "O conexiune de internet activă este necesară pentru a descărca "
+#~ "aplicațiile tale preferate și a menține sistemul actualizat"
+
+#~ msgid "Wired"
+#~ msgstr "Conexiune prin cablu"
+
+#~ msgid "Wireless Networks"
+#~ msgstr "Rețele Wireless"
+
+#~ msgid "Advanced"
+#~ msgstr "Avansat"
+
+#~ msgid "Connect to Hidden Network..."
+#~ msgstr "Conectează-te la o rețea ascunsă..."
+
+#~ msgid "Default"
+#~ msgstr "Implicit"
+
+#~ msgid "Welcome!"
+#~ msgstr "Bine ai venit!"
+
+#~ msgid "Restart your device to enjoy your Vanilla OS experience"
+#~ msgstr "Repornește dispozitivul pentru a te bucura de experiența Vanilla OS"
+
+#~ msgid "Enable"
+#~ msgstr "Permite"
+
+#~ msgid "Finalizing..."
+#~ msgstr "Se finalizează..."
+
+#~ msgid "Your device will be ready soon"
+#~ msgstr "Dispozitivul tău va fi gata în curând"
+
+#~ msgid "Show Console Output"
+#~ msgstr "Afișare Ieșire Consolă"
+
+#~ msgid "Show Slideshow"
+#~ msgstr "Arată prezentarea"
+
+#~ msgid "Read More"
+#~ msgstr "Citește mai mult"
+
+#~ msgid "Connected"
+#~ msgstr "Conectat"
+
+#~ msgid "Please wait until the connection check is done."
+#~ msgstr "Așteaptă până se termină verificarea conexiunii."
+
+#~ msgid "Insecure network (WEP)"
+#~ msgstr "Rețea nesigură (WEP)"
+
+#~ msgid "Secure network (WPA)"
+#~ msgstr "Rețea sigură (WPA)"
+
+#~ msgid "Secure network (WPA2)"
+#~ msgstr "Rețea securizată (WPA2)"
+
+#~ msgid "Secure network (WPA3)"
+#~ msgstr "Rețea sigură (WPA3)"
+
+#~ msgid "Authentication required"
+#~ msgstr "Autentificare necesară"
+
+#~ msgid "Connecting"
+#~ msgstr "Conectare"
+
+#~ msgid "Disconnected"
+#~ msgstr "Deconectat"
+
+#~ msgid "Disconnecting"
+#~ msgstr "Deconectare"
+
+#~ msgid "Status Unknown"
+#~ msgstr "Statut necunoscut"
+
+#~ msgid "Unmanaged"
+#~ msgstr "Negestionat"
+
+#~ msgid "Unavailable"
+#~ msgstr "Indisponibil"
+
+#~ msgid "Unknown"
+#~ msgstr "Necunoscut"
+
+#~ msgid "Cable Unplugged"
+#~ msgstr "Cablu deconectat"
+
+#~ msgid "Please select at least one option."
+#~ msgstr "Te rog alege cel puțin o opțiune."
+
+#~ msgid "Restart your device to enjoy your {} experience."
+#~ msgstr "Repornește dispozitivul pentru a te bucura de experiența {}."
+
+#~ msgid "Something went wrong"
+#~ msgstr "Ceva a dat greș"
+
+#~ msgid "Please contact the distribution developers."
+#~ msgstr "Te rog contactează dezvoltatorii distribuției."
+
+#~ msgid "Run a post script"
+#~ msgstr "Rulează un script de după instalare"
+
+#~ msgid "Done!"
+#~ msgstr "Gata!"
+
+#~ msgid "Something went wrong."
+#~ msgstr "Ceva a dat greș."
+
+#~ msgid "Connect to the Internet"
+#~ msgstr "Conectează-te la internet"
+
+#~ msgid "All done!"
+#~ msgstr "Totul este gata!"
+
+#~ msgid "Yes, enable it"
+#~ msgstr "Da, activează opțiunea"
+
+#~ msgid "The changes are being applied. Please Wait…"
+#~ msgstr "Schimbările se aplică. Te rog așteaptă…"

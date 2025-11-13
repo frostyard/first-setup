@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="VanillaLanguage" parent="AdwBin">
+    <child>
+      <object class="AdwToolbarView">
+        <property name="content">
+          <object class="AdwStatusPage" id="status_page">
+            <property name="icon-name">preferences-desktop-locale-symbolic</property>
+            <property name="title" translatable="yes">Language</property>
+            <property name="description" translatable="yes">Select your language</property>
+          </object>
+        </property>
+      </object>
+    </child>
+  </template>
+</interface>
