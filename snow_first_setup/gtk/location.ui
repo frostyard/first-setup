@@ -12,7 +12,7 @@
             <child>
               <object class="GtkSearchEntry" id="entry_search">
                 <property name="hexpand">true</property>
-                <property name="placeholder-text" translatable="yes">Search keyboard layouts</property>
+                <property name="placeholder-text" translatable="yes">Search</property>
                 <property name="search-delay">250</property>
               </object>
             </child>

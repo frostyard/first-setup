@@ -183,7 +183,7 @@ msgid "Select your language"
 msgstr "Wählen Sie ihre Sprache"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Suche nach Tastaturlayout"
 
 #: snow_first_setup/gtk/location.ui:24

@@ -177,7 +177,7 @@ msgid "Select your language"
 msgstr "Válaszd ki a nyelvedet"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Válaszd ki a billentyűzet kiosztásodat"
 
 #: snow_first_setup/gtk/location.ui:24

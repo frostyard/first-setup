@@ -176,7 +176,7 @@ msgid "Select your language"
 msgstr "Pilih bahasa Anda"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Cari tata letak keyboard"
 
 #: snow_first_setup/gtk/location.ui:24

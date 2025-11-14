@@ -60,6 +60,17 @@
                               <property name="opacity">0</property>
                             </object>
                           </child>
+                        <child>
+                        <object class="AdwComboRow" id="shell_entry">
+                          <property name="title" translatable="yes">User Shell</property>
+                          <property name="model">
+                            <object class="GtkStringList" id="shell_list">
+                              <items>
+                              </items>
+                            </object>
+                          </property>
+                        </object>
+                        </child>
                       </object>
                     </child>
                   </object>

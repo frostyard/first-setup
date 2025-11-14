@@ -171,8 +171,8 @@ msgid "Select your language"
 msgstr "Select your language"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
-msgstr "Search keyboard layouts"
+msgid "Search"
+msgstr "Search"
 
 #: snow_first_setup/gtk/location.ui:24
 msgid "The search results are incomplete. Try refining your query."

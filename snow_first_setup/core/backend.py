@@ -43,8 +43,8 @@ def set_hostname(hostname: str):
 def set_theme(theme: str) -> str|None:
     return run_script("theme", [theme])
 
-def _add_user(username: str, full_name: str, password: str):
-    return run_script("user", [username, full_name], root=True, input_data=password)
+def _add_user(username: str, full_name: str, password: str, shell: str = "/bin/bash"):
+    return run_script("user", [username, full_name, shell], root=True, input_data=password)
 
 def logout():
     return run_script("logout", [])
@@ -106,7 +106,7 @@ def run_script(name: str, args: list[str], root: bool = False, input_data: str =
         print(name, args, "returned an error:")
         print(result)
         return False
-    
+
     return True
 
 _error_count = 0
@@ -120,7 +120,7 @@ def report_error(script_name: str, command: list[str], message: str):
     _lock_error_count = True
 
     errors.append(message)
-    
+
     for callback in _error_subscribers:
         callback(script_name, command, _error_count)
 
@@ -138,13 +138,13 @@ def setup_system_deferred():
     _deferred_actions[uid] = {"action_id": action_id, "uid": uid, "callback": setup_system}
     report_progress(action_id, uid, ProgressState.Initialized)
 
-def add_user_deferred(username: str, full_name: str, password: str):
+def add_user_deferred(username: str, full_name: str, password: str, shell: str = "/bin/bash"):
     global _deferred_actions
     action_id = "add_user"
     uid = action_id
     action_info = {"username": username, "full_name": full_name}
     def add_user():
-        _run_function_with_progress(action_id, uid, action_info, _add_user, username, full_name, password)
+        _run_function_with_progress(action_id, uid, action_info, _add_user, username, full_name, password, shell)
     _deferred_actions[uid] = {"action_id": action_id, "callback": add_user, "info": action_info}
     report_progress(action_id, uid, ProgressState.Initialized, action_info)
 

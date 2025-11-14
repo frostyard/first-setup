@@ -172,7 +172,7 @@ msgid "Select your language"
 msgstr "உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "விசைப்பலகை தளவமைப்புகளைத் தேடுங்கள்"
 
 #: snow_first_setup/gtk/location.ui:24
