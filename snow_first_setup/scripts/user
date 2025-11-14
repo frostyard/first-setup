@@ -11,14 +11,14 @@ if ! [ "$UID" == "0" ]; then
 fi
 
 # Set default shell or use provided shell
-SHELL_PATH="/bin/bash"
+SHELL_PATH="/usr/bin/bash"
 
 if [ -n "$3" ]; then
     # Check if the provided shell exists in /etc/shells
     if grep -q "^$3$" /etc/shells; then
         SHELL_PATH="$3"
     else
-        echo "Warning: Shell '$3' not found in /etc/shells. Using default /bin/bash"
+        echo "Warning: Shell '$3' not found in /etc/shells. Using default /usr/bin/bash"
     fi
 fi
 

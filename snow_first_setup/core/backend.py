@@ -43,7 +43,7 @@ def set_hostname(hostname: str):
 def set_theme(theme: str) -> str|None:
     return run_script("theme", [theme])
 
-def _add_user(username: str, full_name: str, password: str, shell: str = "/bin/bash"):
+def _add_user(username: str, full_name: str, password: str, shell: str = "/usr/bin/bash"):
     return run_script("user", [username, full_name, shell], root=True, input_data=password)
 
 def logout():
@@ -138,7 +138,7 @@ def setup_system_deferred():
     _deferred_actions[uid] = {"action_id": action_id, "uid": uid, "callback": setup_system}
     report_progress(action_id, uid, ProgressState.Initialized)
 
-def add_user_deferred(username: str, full_name: str, password: str, shell: str = "/bin/bash"):
+def add_user_deferred(username: str, full_name: str, password: str, shell: str = "/usr/bin/bash"):
     global _deferred_actions
     action_id = "add_user"
     uid = action_id

@@ -39,7 +39,7 @@ class VanillaUser(Adw.Bin):
     __user_changed_username = False
 
     fullname = ""
-    shell = "/bin/bash"
+    shell = "/usr/bin/bash"
 
     __automatic_username = ""
 
@@ -77,11 +77,11 @@ class VanillaUser(Adw.Bin):
             with open("/etc/shells", "r") as f:
                 shells = f.readlines()
 
-            # Filter to only include shells that start with /bin/ and are not comments
+            # Filter to only include shells that start with /usr/ and are not comments
             filtered_shells = []
             for shell in shells:
                 shell = shell.strip()
-                if shell and not shell.startswith("#") and shell.startswith("/bin/"):
+                if shell and not shell.startswith("#") and shell.startswith("/usr/"):
                     filtered_shells.append(shell)
 
             # Remove duplicates and sort
@@ -92,10 +92,10 @@ class VanillaUser(Adw.Bin):
             for shell in filtered_shells:
                 self.shell_list.append(shell)
 
-            # Set default selection to /bin/bash if available
-            if "/bin/bash" in filtered_shells:
-                self.shell_entry.set_selected(filtered_shells.index("/bin/bash"))
-                self.shell = "/bin/bash"
+            # Set default selection to /usr/bin/bash if available
+            if "/usr/bin/bash" in filtered_shells:
+                self.shell_entry.set_selected(filtered_shells.index("/usr/bin/bash"))
+                self.shell = "/usr/bin/bash"
             elif filtered_shells:
                 self.shell_entry.set_selected(0)
                 self.shell = filtered_shells[0]
