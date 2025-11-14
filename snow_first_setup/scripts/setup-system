@@ -12,3 +12,6 @@ fi
 
 # do things here for the user that might need to happen on first setup
 # maybe add brew to the bashrc?
+echo '# Set PATH for Homebrew.' >> ~/.bashrc
+echo '# added by snow-first-setup' >> ~/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
