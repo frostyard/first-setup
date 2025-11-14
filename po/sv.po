@@ -173,7 +173,7 @@ msgid "Select your language"
 msgstr "Välj ditt språk"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Sök tangentbordslayouter"
 
 #: snow_first_setup/gtk/location.ui:24

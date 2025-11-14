@@ -179,7 +179,7 @@ msgid "Select your language"
 msgstr "Selecione seu idioma"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Procurar leiautes de teclado"
 
 #: snow_first_setup/gtk/location.ui:24

@@ -32,12 +32,14 @@ class VanillaUser(Adw.Bin):
     error = Gtk.Template.Child()
     password_entry = Gtk.Template.Child()
     password_confirmation = Gtk.Template.Child()
+    shell_entry = Gtk.Template.Child()
+    shell_list = Gtk.Template.Child()
 
     username = ""
     __user_changed_username = False
 
     fullname = ""
-
+    shell = "/bin/bash"
 
     __automatic_username = ""
 
@@ -55,6 +57,9 @@ class VanillaUser(Adw.Bin):
         self.existing_users = subprocess.Popen("getent passwd | cut -d: -f1", shell=True,
                                           stdout=subprocess.PIPE).stdout.read().decode().splitlines()
 
+        # Load and populate available shells
+        self.__populate_shell_list()
+
     def set_page_active(self):
         self.fullname_entry.grab_focus()
         self.__verify_continue()
@@ -63,8 +68,54 @@ class VanillaUser(Adw.Bin):
         return
 
     def finish(self):
-        backend.add_user_deferred(self.username, self.fullname, self.password)
+        backend.add_user_deferred(self.username, self.fullname, self.password, self.shell)
         return True
+
+    def __populate_shell_list(self):
+        """Read shells from /etc/shells and populate the shell list with /bin/ shells only."""
+        try:
+            with open("/etc/shells", "r") as f:
+                shells = f.readlines()
+
+            # Filter to only include shells that start with /bin/ and are not comments
+            filtered_shells = []
+            for shell in shells:
+                shell = shell.strip()
+                if shell and not shell.startswith("#") and shell.startswith("/bin/"):
+                    filtered_shells.append(shell)
+
+            # Remove duplicates and sort
+            filtered_shells = sorted(set(filtered_shells))
+
+            # Clear existing entries and populate the list
+            # self.shell_list
+            for shell in filtered_shells:
+                self.shell_list.append(shell)
+
+            # Set default selection to /bin/bash if available
+            if "/bin/bash" in filtered_shells:
+                self.shell_entry.set_selected(filtered_shells.index("/bin/bash"))
+                self.shell = "/bin/bash"
+            elif filtered_shells:
+                self.shell_entry.set_selected(0)
+                self.shell = filtered_shells[0]
+
+            # Connect to selection changes
+            self.shell_entry.connect("notify::selected", self.__on_shell_changed)
+
+        except Exception as e:
+            print(f"Error reading /etc/shells: {e}")
+            # Fallback to default bash
+            self.shell_list.remove_all()
+            self.shell_list.append("/bin/bash")
+            self.shell_entry.set_selected(0)
+            self.shell = "/bin/bash"
+
+    def __on_shell_changed(self, dropdown, _):
+        """Handle shell selection changes."""
+        selected = dropdown.get_selected()
+        if selected != Gtk.INVALID_LIST_POSITION:
+            self.shell = self.shell_list.get_string(selected)
 
     def __on_activate(self, widget):
         self.__window.finish_step()

@@ -176,7 +176,7 @@ msgid "Select your language"
 msgstr "Chọn ngôn ngữ của bạn"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Tìm kiếm bố cục bàn phím"
 
 #: snow_first_setup/gtk/location.ui:24

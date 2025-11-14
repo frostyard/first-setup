@@ -172,7 +172,7 @@ msgid "Select your language"
 msgstr "Valitse kieli"
 
 #: snow_first_setup/gtk/location.ui:15
-msgid "Search keyboard layouts"
+msgid "Search"
 msgstr "Etsi näppäimistöasetteluja"
 
 #: snow_first_setup/gtk/location.ui:24
