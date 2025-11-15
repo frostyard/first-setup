@@ -22,6 +22,15 @@ if [ -n "$3" ]; then
     fi
 fi
 
-adduser --quiet --disabled-password --shell "$SHELL_PATH" --gecos "$2" "$1"
-passwd --stdin "$1"
-usermod -a -G sudo,adm,lpadmin "$1"
+if ! read -r PASSWORD_STDIN; then
+    echo "Error: failed to read password from stdin"
+    exit 7
+fi
+
+homectl create "$1" \
+    --real-name "$2" \
+    --shell "$SHELL_PATH" \
+    --member-of "sudo,adm,lpadmin,docker,incus-admin" \
+    --storage=luks \
+    --luks-discard=yes \
+    --password "$PASSWORD_STDIN"
