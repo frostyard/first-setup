@@ -30,7 +30,7 @@ fi
 homectl create "$1" \
     --real-name "$2" \
     --shell "$SHELL_PATH" \
-    --member-of "sudo,adm,lpadmin" \
+    --member-of "sudo,adm,lpadmin,docker,incus-admin" \
     --storage=luks \
     --luks-discard=yes \
     --password "$PASSWORD_STDIN"
