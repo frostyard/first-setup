@@ -31,6 +31,6 @@ homectl create "$1" \
     --real-name "$2" \
     --shell "$SHELL_PATH" \
     --member-of "sudo,adm,lpadmin" \
-    --storage=directory \
-    --luks=false \
+    --storage=luks \
+    --luks-discard=yes \
     --password "$PASSWORD_STDIN"
