@@ -2,6 +2,7 @@ from enum import Enum
 
 import time
 import os
+import socket
 import subprocess
 import logging
 
@@ -42,6 +43,21 @@ def set_timezone(timezone: str):
 
 def set_hostname(hostname: str):
     return run_script("hostname", [hostname], root=True)
+
+# Hostnames that mean "never customized": snow images ship no /etc/hostname,
+# so an untouched system reports the kernel/systemd fallback. The installer
+# (bootc-installer) always seeds a real hostname at install time — when one
+# is present, first setup must not ask again.
+_DEFAULT_HOSTNAMES = {"", "localhost", "localhost.localdomain", "(none)", "debian"}
+
+def hostname_is_default() -> bool:
+    """True when the system hostname was never customized, so the
+    hostname page should still be shown."""
+    try:
+        hostname = socket.gethostname()
+    except OSError:
+        return True
+    return hostname.strip().lower() in _DEFAULT_HOSTNAMES
 
 def set_theme(theme: str) -> str|None:
     return run_script("theme", [theme])
