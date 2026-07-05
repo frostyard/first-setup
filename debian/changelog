@@ -1,3 +1,12 @@
+snow-first-setup (0.2.16) stable; urgency=medium
+
+  * Merge pull request #23 from frostyard/fix/gated-system-autostart
+  * Merge pull request #25 from frostyard/fix/ci-build-container
+  * ci: build in debian:trixie — snow:latest exceeds Docker's layer limit
+  * fix: replace per-user skel autostart with gated system-wide autostart
+
+ -- Brian Ketelsen <bketelsen@gmail.com>  Sat, 04 Jul 2026 22:45:54 -0400
+
 snow-first-setup (0.2.15) stable; urgency=medium
 
   * fix: bump
