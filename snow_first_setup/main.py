@@ -29,6 +29,15 @@ def main(version, moduledir: str, localedir: str):
         sys.exit(1)
         return
 
+    # When launched via the system-wide autostart entry (/etc/xdg/autostart),
+    # exit immediately if this user already completed first setup or if this
+    # is a live session (the live media runs the installer instead). Checked
+    # before any GTK/resource loading so the gate is essentially free.
+    if "--autostart" in sys.argv:
+        import snow_first_setup.core.backend as early_backend
+        if early_backend.is_setup_complete() or early_backend.is_live_session():
+            return 0
+
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     locale.bindtextdomain('snow-first-setup', localedir)
     locale.textdomain('snow-first-setup')

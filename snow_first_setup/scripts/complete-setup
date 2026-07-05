@@ -1,0 +1,24 @@
+#!/bin/bash
+if ! [ -z "$1" ]; then
+    echo "usage:"
+    echo "complete-setup"
+    exit 5
+fi
+
+if [ "$UID" == "0" ]; then
+    echo "this script must be run as a regular user"
+    exit 7
+fi
+
+config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# Record per-user completion. The system-wide autostart entry in
+# /etc/xdg/autostart launches the app with --autostart, which exits
+# immediately when this marker exists.
+mkdir -p "$config_home"
+touch "$config_home/snow-first-setup.done"
+
+# Legacy cleanup: users provisioned before v0.2.16 received a per-user
+# autostart copy via /etc/skel; remove it if present so it no longer
+# shadows (or duplicates) the system-wide entry.
+rm -f "$config_home/autostart/org.frostyard.FirstSetup.autostart.desktop"
