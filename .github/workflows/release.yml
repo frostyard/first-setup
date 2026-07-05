@@ -8,12 +8,13 @@ on:
 jobs:
   build-artifacts:
     runs-on: ubuntu-latest
+    # debian:trixie matches the target distro (snosi images are Trixie-based).
+    # ghcr.io/frostyard/snow:latest can no longer be used as a job container:
+    # snosi CI re-chunks published images into 100+ layers for efficient delta
+    # updates, and Docker refuses to pull them ("max depth exceeded" — the
+    # ~128-layer overlay2 limit). Podman/bootc hosts are unaffected.
     container:
-      image: ghcr.io/frostyard/snow:latest
-      volumes:
-        - /proc:/proc
-        - /:/run/host
-      options: --privileged -it
+      image: debian:trixie
     permissions:
       contents: read
 
@@ -31,7 +32,7 @@ jobs:
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y awscli
+          apt-get install -y awscli dpkg-dev devscripts
           apt-get build-dep -y .
 
       - name: Build .deb package
@@ -114,7 +115,7 @@ jobs:
           base-url: https://repository.frostyard.org # required for sysext
 
       - name: Kickoff snosi
-        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        if: startsWith(github.ref, 'refs/tags/')
         continue-on-error: true
         uses: peter-evans/repository-dispatch@v4
         with:

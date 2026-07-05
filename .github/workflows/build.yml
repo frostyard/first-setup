@@ -10,12 +10,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # debian:trixie matches the target distro (snosi images are Trixie-based).
+    # ghcr.io/frostyard/snow:latest can no longer be used as a job container:
+    # snosi CI re-chunks published images into 100+ layers for efficient delta
+    # updates, and Docker refuses to pull them ("max depth exceeded" — the
+    # ~128-layer overlay2 limit). Podman/bootc hosts are unaffected.
     container:
-      image: ghcr.io/frostyard/snow:latest
-      volumes:
-        - /proc:/proc
-        - /:/run/host
-      options: --privileged -it
+      image: debian:trixie
 
     steps:
       - uses: actions/checkout@v6
