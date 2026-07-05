@@ -110,6 +110,10 @@ class VanillaWindow(Adw.ApplicationWindow):
 
             from snow_first_setup.views.logout import VanillaLogout
 
+            # The installer (bootc-installer) already sets a hostname at
+            # install time — only ask when the system still has the default.
+            ask_hostname = backend.hostname_is_default()
+
             self.__view_welcome = VanillaWelcome(self)
             self.__view_welcome.no_next_button = True
             self.__view_welcome.no_back_button = True
@@ -120,11 +124,16 @@ class VanillaWindow(Adw.ApplicationWindow):
                 self.__view_language.no_back_button = True
                 self.__view_keyboard = VanillaKeyboard(self)
                 self.__view_timezone = VanillaTimezone(self)
-                self.__view_hostname = VanillaHostname(self)
-            else:
+                if ask_hostname:
+                    self.__view_hostname = VanillaHostname(self)
+            elif ask_hostname:
                 self.__view_hostname = VanillaHostname(self)
                 self.__view_hostname.no_back_button = True
             self.__view_user = VanillaUser(self)
+            if not self.oem_mode and not ask_hostname:
+                # The hostname page was the first interactive page; without
+                # it the user page must not offer "back" into the checks.
+                self.__view_user.no_back_button = True
             self.__view_coreprogress = VanillaCoreProgress(self)
             self.__view_coreprogress.no_back_button = True
             self.__view_logout = VanillaLogout(self)
@@ -136,7 +145,8 @@ class VanillaWindow(Adw.ApplicationWindow):
                 self.pages.append(self.__view_language)
                 self.pages.append(self.__view_keyboard)
                 self.pages.append(self.__view_timezone)
-            self.pages.append(self.__view_hostname)
+            if ask_hostname:
+                self.pages.append(self.__view_hostname)
             self.pages.append(self.__view_user)
             self.pages.append(self.__view_coreprogress)
 
