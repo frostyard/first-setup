@@ -1,3 +1,10 @@
+snow-first-setup (0.2.17) stable; urgency=medium
+
+  * Merge pull request #26 from frostyard/fix/skip-hostname-when-set
+  * fix: skip the hostname page when the installer already set one
+
+ -- Brian Ketelsen <bketelsen@gmail.com>  Sat, 04 Jul 2026 23:01:35 -0400
+
 snow-first-setup (0.2.16) stable; urgency=medium
 
   * Merge pull request #23 from frostyard/fix/gated-system-autostart
