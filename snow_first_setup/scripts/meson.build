@@ -18,7 +18,7 @@ sources = [
   'setup-system',
   'user',
   'remove-first-setup-user',
-  'remove-autostart-file',
+  'complete-setup',
   'install-to-disk',
   'enroll-key',
   'recovery-key',

@@ -46,6 +46,19 @@ def set_hostname(hostname: str):
 def set_theme(theme: str) -> str|None:
     return run_script("theme", [theme])
 
+def setup_complete_marker_path() -> str:
+    """Path of the per-user marker written when first setup completes.
+
+    The system-wide autostart entry (installed to /etc/xdg/autostart) launches
+    the app with --autostart, which exits immediately when this marker exists.
+    """
+    config_home = os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config")
+    return os.path.join(config_home, "snow-first-setup.done")
+
+def is_setup_complete() -> bool:
+    """Check whether the current user already completed first setup."""
+    return os.path.exists(setup_complete_marker_path())
+
 def is_live_session() -> bool:
     """Check if the system is running in live session mode.
 
@@ -83,8 +96,8 @@ def remove_first_setup_user():
 def oem_complete():
     return run_script("oemcomplete", [], root=True)
 
-def remove_autostart_file():
-    return run_script("remove-autostart-file", [])
+def mark_setup_complete():
+    return run_script("complete-setup", [])
 
 def _setup_system():
     return run_script("setup-system", [])

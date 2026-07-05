@@ -33,7 +33,7 @@ class VanillaProgress(Adw.Bin):
     __not_started = True
     __finished = False
     __already_skipped = False
-    __already_removed_autostart_file = False
+    __already_marked_complete = False
 
     def __init__(self, window, **kwargs):
         super().__init__(**kwargs)
@@ -52,8 +52,8 @@ class VanillaProgress(Adw.Bin):
         return
 
     def finish(self):
-        if not self.__already_removed_autostart_file:
-            self.__already_removed_autostart_file = backend.remove_autostart_file()
+        if not self.__already_marked_complete:
+            self.__already_marked_complete = backend.mark_setup_complete()
         return True
 
     def __on_items_changed_thread(self, id: str, uid: str, state: backend.ProgressState, info: dict):

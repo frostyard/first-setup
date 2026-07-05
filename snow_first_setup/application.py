@@ -101,6 +101,14 @@ class FirstSetupApplication(Adw.Application):
             None,
         )
         self.add_main_option(
+            "autostart",
+            ord("a"),
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.NONE,
+            _("Launched by the system autostart entry; exits early if setup is already complete (handled in main)."),
+            None,
+        )
+        self.add_main_option(
             "oem-mode",
             ord("o"),
             GLib.OptionFlags.NONE,
