@@ -23,6 +23,7 @@ sources = [
   'enroll-key',
   'recovery-key',
   'oemcomplete',
+  'sysext-features',
 ]
 
 install_data(sources, install_dir: scriptsdir)

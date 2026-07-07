@@ -18,6 +18,7 @@ sources = [
   'logout.py',
   'progress.py',
   'recovery_key.py',
+  'sysext.py',
   'theme.py',
   'timezone.py',
   'user.py',

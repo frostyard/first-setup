@@ -102,16 +102,16 @@ class VanillaCoreProgress(Adw.Bin):
         self.actions[uid]["suffix"] = status_suffix
 
     def __add_new_action(self, id: str, uid: str, info: dict):
-        # Only add flatpak installations to this progress view
-        if id != "install_flatpak":
+        # Only add flatpak installations and sysext features to this progress view
+        if id == "install_flatpak":
+            icon = Gtk.Image.new_from_icon_name(info["app_id"])
+            applications.set_app_icon_from_id_async(icon, info["app_id"])
+            title = _("Installing") + " " + info["app_name"]
+        elif id == "enable_sysext":
+            icon = Gtk.Image.new_from_icon_name("org.gnome.Software-symbolic")
+            title = _("Enabling") + " " + info["feature_description"]
+        else:
             return
-            
-        title = ""
-        icon = None
-        
-        icon = Gtk.Image.new_from_icon_name(info["app_id"])
-        applications.set_app_icon_from_id_async(icon, info["app_id"])
-        title = _("Installing") + " " + info["app_name"]
 
         row = Adw.ActionRow()
         row.set_title(title)

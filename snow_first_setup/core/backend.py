@@ -118,6 +118,93 @@ def mark_setup_complete():
 def _setup_system():
     return run_script("setup-system", [])
 
+# Directories scanned by updex for .feature definitions, in precedence order
+# (an /etc override wins over the /usr/lib default shipped in the image).
+_SYSUPDATE_DIRS = [
+    "/etc/sysupdate.d",
+    "/run/sysupdate.d",
+    "/usr/local/lib/sysupdate.d",
+    "/usr/lib/sysupdate.d",
+]
+
+def _parse_feature_file(path: str) -> dict:
+    """Parse a .feature file (or drop-in), returning only the keys present."""
+    feature = {}
+    with open(path, "r", encoding="utf-8") as file:
+        for line in file:
+            line = line.strip()
+            if "=" not in line or line.startswith(("#", ";", "[")):
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip()
+            if key == "Description":
+                feature["description"] = value
+            elif key == "Documentation":
+                feature["documentation"] = value
+            elif key == "Enabled":
+                feature["enabled"] = value.lower() in ("true", "yes", "1")
+    return feature
+
+def _feature_dropins(name: str) -> list[str]:
+    """Drop-in paths for a feature, in application order.
+
+    A same-named drop-in in a higher-precedence directory masks the lower
+    one; the surviving set applies sorted by file name (updex writes the
+    enablement as <name>.feature.d/00-updex.conf in /etc/sysupdate.d).
+    """
+    dropins = {}
+    for directory in reversed(_SYSUPDATE_DIRS):
+        dropin_dir = os.path.join(directory, name + ".feature.d")
+        try:
+            entries = os.listdir(dropin_dir)
+        except OSError:
+            continue
+        for entry in entries:
+            if entry.endswith(".conf"):
+                dropins[entry] = os.path.join(dropin_dir, entry)
+    return [dropins[entry] for entry in sorted(dropins)]
+
+def list_sysext_features() -> list[dict]:
+    """Discover optional sysext features from *.feature files.
+
+    Returns a sorted list of {"name", "description", "documentation",
+    "enabled"} dicts, empty when the image ships no feature definitions.
+    """
+    features = {}
+    # Lowest-precedence directory first so a .feature file in e.g. /etc
+    # replaces the one shipped in /usr/lib.
+    for directory in reversed(_SYSUPDATE_DIRS):
+        try:
+            entries = sorted(os.listdir(directory))
+        except OSError:
+            continue
+        for entry in entries:
+            if not entry.endswith(".feature"):
+                continue
+            name = entry[: -len(".feature")]
+            try:
+                features[name] = _parse_feature_file(os.path.join(directory, entry))
+            except OSError as e:
+                logger.warning(f"Could not read feature file {entry}: {e}")
+    result = []
+    for name, feature in features.items():
+        for dropin in _feature_dropins(name):
+            try:
+                feature.update(_parse_feature_file(dropin))
+            except OSError as e:
+                logger.warning(f"Could not read feature drop-in {dropin}: {e}")
+        result.append({
+            "name": name,
+            "description": feature.get("description") or name,
+            "documentation": feature.get("documentation", ""),
+            "enabled": feature.get("enabled", False),
+        })
+    return sorted(result, key=lambda feature: feature["name"])
+
+def _enable_sysext(name: str):
+    return run_script("sysext-features", [name], root=True)
+
 def _install_flatpak(id: str):
     return run_script("flatpak", [id])
 
@@ -259,6 +346,16 @@ def install_flatpak_system_deferred(id: str, name: str):
     _deferred_actions[uid] = {"action_id": action_id, "callback": install_flatpak, "info": action_info}
     report_progress(action_id, uid, ProgressState.Initialized, action_info)
 
+def enable_sysext_deferred(name: str, description: str):
+    global _deferred_actions
+    action_id = "enable_sysext"
+    uid = action_id+name
+    action_info = {"feature_name": name, "feature_description": description}
+    def enable_sysext():
+        _run_function_with_progress(action_id, uid, action_info, _enable_sysext, name)
+    _deferred_actions[uid] = {"action_id": action_id, "callback": enable_sysext, "info": action_info}
+    report_progress(action_id, uid, ProgressState.Initialized, action_info)
+
 def _run_function_with_progress(action_id: str, uid: str, action_info: dict, function, *args):
     report_progress(action_id, uid, ProgressState.Running, action_info)
     success = function(*args)
@@ -272,6 +369,14 @@ def clear_flatpak_deferred():
     new_list = {}
     for uid, action in _deferred_actions.items():
         if action["action_id"] != "install_flatpak":
+            new_list[uid] = action
+    _deferred_actions = new_list
+
+def clear_sysext_deferred():
+    global _deferred_actions
+    new_list = {}
+    for uid, action in _deferred_actions.items():
+        if action["action_id"] != "enable_sysext":
             new_list[uid] = action
     _deferred_actions = new_list
 

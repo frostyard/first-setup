@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "usage:"
+    echo "sysext-features <feature name>"
+    exit 5
+fi
+
+if ! [[ "$1" =~ ^[A-Za-z0-9._-]+$ ]]; then
+    echo "invalid feature name: $1"
+    exit 6
+fi
+
+if ! [ "$UID" == "0" ]; then
+    echo "this script must be run with super user privileges"
+    exit 7
+fi
+
+# Enable the feature (writes the enablement to /etc/sysupdate.d) and download
+# its extension images right away; updex runs systemd-sysext refresh after the
+# install so services activate before the user's first login.
+updex --silent features enable "$1" --now

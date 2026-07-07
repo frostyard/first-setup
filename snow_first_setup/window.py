@@ -106,6 +106,7 @@ class VanillaWindow(Adw.ApplicationWindow):
             from snow_first_setup.views.conn_check import VanillaConnCheck
             from snow_first_setup.views.hostname import VanillaHostname
             from snow_first_setup.views.user import VanillaUser
+            from snow_first_setup.views.sysext import VanillaSysext
             from snow_first_setup.views.core_progress import VanillaCoreProgress
 
             from snow_first_setup.views.logout import VanillaLogout
@@ -134,6 +135,7 @@ class VanillaWindow(Adw.ApplicationWindow):
                 # The hostname page was the first interactive page; without
                 # it the user page must not offer "back" into the checks.
                 self.__view_user.no_back_button = True
+            self.__view_sysext = VanillaSysext(self)
             self.__view_coreprogress = VanillaCoreProgress(self)
             self.__view_coreprogress.no_back_button = True
             self.__view_logout = VanillaLogout(self)
@@ -148,6 +150,10 @@ class VanillaWindow(Adw.ApplicationWindow):
             if ask_hostname:
                 self.pages.append(self.__view_hostname)
             self.pages.append(self.__view_user)
+            # Only offer the extensions page when the image ships sysext
+            # feature definitions to choose from.
+            if self.__view_sysext.has_features:
+                self.pages.append(self.__view_sysext)
             self.pages.append(self.__view_coreprogress)
 
             self.pages.append(self.__view_logout)
