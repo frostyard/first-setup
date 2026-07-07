@@ -29,6 +29,7 @@
 
     <file>gtk/layout-applications.ui</file>
     <file>gtk/applications-dialog.ui</file>
+    <file>gtk/sysext.ui</file>
 
     <file>assets/theme-default.svg</file>
     <file>assets/theme-dark.svg</file>

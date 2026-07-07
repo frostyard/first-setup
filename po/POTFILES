@@ -18,6 +18,7 @@ snow_first_setup/gtk/keyboard.ui
 snow_first_setup/gtk/widget-location-list-page.ui
 snow_first_setup/gtk/layout-applications.ui
 snow_first_setup/gtk/applications-dialog.ui
+snow_first_setup/gtk/sysext.ui
 
 
 snow_first_setup/__init__.py
@@ -39,6 +40,7 @@ snow_first_setup/views/timezone.py
 snow_first_setup/views/welcome_user.py
 snow_first_setup/views/welcome.py
 snow_first_setup/views/progress.py
+snow_first_setup/views/sysext.py
 snow_first_setup/views/logout.py
 snow_first_setup/views/done.py
 

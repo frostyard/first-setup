@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0" />
+  <template class="VanillaSysext" parent="AdwBin">
+    <property name="hexpand">1</property>
+    <property name="vexpand">1</property>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="hscrollbar-policy">never</property>
+        <property name="propagate-natural-height">true</property>
+        <child>
+          <object class="AdwStatusPage">
+            <property name="halign">fill</property>
+            <property name="valign">fill</property>
+            <property name="hexpand">true</property>
+            <property name="title" translatable="yes">Extensions</property>
+            <property name="description" translatable="yes">Choose which system extensions to enable. They will be downloaded during setup.</property>
+            <property name="icon-name">org.gnome.Software-symbolic</property>
+            <child>
+              <object class="AdwClamp">
+                <property name="maximum_size">500</property>
+                <property name="tightening_threshold">400</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">24</property>
+                    <child>
+                      <object class="AdwPreferencesGroup" id="recommended_group">
+                        <property name="title" translatable="yes">Recommended</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesGroup" id="more_group">
+                        <child>
+                          <object class="AdwExpanderRow" id="more_row">
+                            <property name="title" translatable="yes">More Extensions</property>
+                            <property name="subtitle" translatable="yes">Developer tools, services and more</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
