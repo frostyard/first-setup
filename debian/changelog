@@ -1,3 +1,10 @@
+snow-first-setup (0.3.0) stable; urgency=medium
+
+  * Merge pull request #28 from frostyard/feat/sysext-page
+  * feat: add sysext feature selection page to first-boot setup
+
+ -- Brian Ketelsen <bketelsen@gmail.com>  Tue, 07 Jul 2026 14:56:07 -0400
+
 snow-first-setup (0.2.17) stable; urgency=medium
 
   * Merge pull request #26 from frostyard/fix/skip-hostname-when-set
