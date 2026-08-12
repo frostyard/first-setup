@@ -1,3 +1,10 @@
+snow-first-setup (0.4.0) stable; urgency=medium
+
+  * Merge pull request #29 from frostyard/first-login-only
+  * feat!: slim to first-login only; installer + first-boot modes retired
+
+ -- Brian Ketelsen <bketelsen@gmail.com>  Tue, 11 Aug 2026 22:36:30 -0400
+
 snow-first-setup (0.3.0) stable; urgency=medium
 
   * Merge pull request #28 from frostyard/feat/sysext-page
