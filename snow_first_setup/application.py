@@ -23,9 +23,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Gtk, Gdk, Gio, GLib, Adw
 
 import os
-import sys
 import logging
-import grp
 _ = __builtins__["_"]
 from snow_first_setup.window import VanillaWindow
 import snow_first_setup.core.backend as backend
@@ -77,43 +75,11 @@ class FirstSetupApplication(Adw.Application):
             None,
         )
         self.add_main_option(
-            "force-configure-mode",
-            ord("c"),
-            GLib.OptionFlags.NONE,
-            GLib.OptionArg.NONE,
-            _("Force the configure system mode, independant of group."),
-            None,
-        )
-        self.add_main_option(
-            "force-installation-mode",
-            ord("i"),
-            GLib.OptionFlags.NONE,
-            GLib.OptionArg.NONE,
-            _("Installation mode."),
-            None,
-        )
-        self.add_main_option(
-            "force-regular-mode",
-            ord("r"),
-            GLib.OptionFlags.NONE,
-            GLib.OptionArg.NONE,
-            _("Force the regular mode, independant of group."),
-            None,
-        )
-        self.add_main_option(
             "autostart",
             ord("a"),
             GLib.OptionFlags.NONE,
             GLib.OptionArg.NONE,
             _("Launched by the system autostart entry; exits early if setup is already complete (handled in main)."),
-            None,
-        )
-        self.add_main_option(
-            "oem-mode",
-            ord("o"),
-            GLib.OptionFlags.NONE,
-            GLib.OptionArg.NONE,
-            _("Use the original equipment manufacturer mode with language, keyboard and timezone selection."),
             None,
         )
 
@@ -127,11 +93,6 @@ class FirstSetupApplication(Adw.Application):
         else:
             self.dry_run = False
 
-        self.force_configure = bool(options.lookup_value("force-configure-mode"))
-        self.force_regular = bool(options.lookup_value("force-regular-mode"))
-        self.oem_mode = bool(options.lookup_value("oem-mode"))
-        self.force_install_mode = bool(options.lookup_value("force-installation-mode"))
-
         backend.set_dry_run(self.dry_run)
 
         self.activate()
@@ -143,42 +104,11 @@ class FirstSetupApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        # live session detection
-        self.install_mode = False
-        configure_system_mode = False
-
-        if backend.is_live_session():
-            self.install_mode = True
-
-        if self.force_install_mode:
-            self.install_mode = True
-
-        if  self.install_mode:
-            print("Running in installation mode.")
-            backend.disable_lockscreen()
-        else:
-            all_groups = [g.gr_name for g in grp.getgrall()]
-            configure_system_mode = False
-            # if the running user is in the snow-first-setup group, enable configure system mode
-            # this is used to run first-setup automatically on first boot
-            # then disabled later so it won't run again
-            if "snow-first-setup" in all_groups and os.getlogin() in grp.getgrnam("snow-first-setup").gr_mem:
-                configure_system_mode = True
-                # add oem mode by default
-                self.oem_mode = True
-
-            if self.force_configure:
-                configure_system_mode = True
-                self.oem_mode = True
-            elif self.force_regular:
-                configure_system_mode = False
-
-            if configure_system_mode:
-                print("Running in configure system mode.")
-                backend.disable_lockscreen()
-            else:
-                print("Running in regular mode.")
-                backend.setup_system_deferred()
+        # First-login mode is the only mode: installation and system-level
+        # configuration are handled by firn (https://github.com/frostyard/firn)
+        # before this app ever runs.
+        print("Running in first-login mode.")
+        backend.setup_system_deferred()
 
         provider = Gtk.CssProvider()
         provider.load_from_resource("/org/frostyard/FirstSetup/style.css")
@@ -192,9 +122,6 @@ class FirstSetupApplication(Adw.Application):
             win = VanillaWindow(
                 application=self,
                 moduledir=self.moduledir,
-                configure_system_mode=configure_system_mode,
-                oem_mode=self.oem_mode,
-                install_mode=self.install_mode,
             )
         win.present()
 

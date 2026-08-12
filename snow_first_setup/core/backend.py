@@ -2,7 +2,6 @@ from enum import Enum
 
 import time
 import os
-import socket
 import subprocess
 import logging
 
@@ -22,42 +21,6 @@ class ProgressState(Enum):
     Running = 2
     Finished = 3
     Failed = 4
-
-def set_keyboard(keyboard: str):
-    keyboard_parts = keyboard.split("+", 1)
-    layout = keyboard_parts[0]
-    variant = ""
-    if len(keyboard_parts) > 1:
-        variant = keyboard_parts[1]
-    return run_script("keyboard", ["pc105", layout, variant], root=True)
-
-# sets the currently used keyboard of the desktop environment
-def set_live_keyboard(keyboard: str):
-    return run_script("live-keyboard", [keyboard])
-
-def set_locale(locale: str):
-    return run_script("locale", [locale], root=True)
-
-def set_timezone(timezone: str):
-    return run_script("timezone", [timezone], root=True)
-
-def set_hostname(hostname: str):
-    return run_script("hostname", [hostname], root=True)
-
-# Hostnames that mean "never customized": snow images ship no /etc/hostname,
-# so an untouched system reports the kernel/systemd fallback. The installer
-# (bootc-installer) always seeds a real hostname at install time — when one
-# is present, first setup must not ask again.
-_DEFAULT_HOSTNAMES = {"", "localhost", "localhost.localdomain", "(none)", "debian"}
-
-def hostname_is_default() -> bool:
-    """True when the system hostname was never customized, so the
-    hostname page should still be shown."""
-    try:
-        hostname = socket.gethostname()
-    except OSError:
-        return True
-    return hostname.strip().lower() in _DEFAULT_HOSTNAMES
 
 def set_theme(theme: str) -> str|None:
     return run_script("theme", [theme])
@@ -88,29 +51,14 @@ def is_live_session() -> bool:
     except Exception:
         return False
 
-def _add_user(username: str, full_name: str, password: str, shell: str = "/usr/bin/bash"):
-    return run_script("user", [username, full_name, shell], root=True, input_data=password)
-
-def logout():
-    return run_script("logout", [])
-
 def open_network_settings():
     return run_script("open-network-settings", [])
 
 def open_accessibility_settings():
     return run_script("open-accessibility-settings", [])
 
-def disable_lockscreen():
-    return run_script("disable-lockscreen", [])
-
 def setup_flatpak_remote():
     return run_script("setup-flatpak-remote", [])
-
-def remove_first_setup_user():
-    return run_script("remove-first-setup-user", [], root=True)
-
-def oem_complete():
-    return run_script("oemcomplete", [], root=True)
 
 def mark_setup_complete():
     return run_script("complete-setup", [])
@@ -118,101 +66,11 @@ def mark_setup_complete():
 def _setup_system():
     return run_script("setup-system", [])
 
-# Directories scanned by updex for .feature definitions, in precedence order
-# (an /etc override wins over the /usr/lib default shipped in the image).
-_SYSUPDATE_DIRS = [
-    "/etc/sysupdate.d",
-    "/run/sysupdate.d",
-    "/usr/local/lib/sysupdate.d",
-    "/usr/lib/sysupdate.d",
-]
-
-def _parse_feature_file(path: str) -> dict:
-    """Parse a .feature file (or drop-in), returning only the keys present."""
-    feature = {}
-    with open(path, "r", encoding="utf-8") as file:
-        for line in file:
-            line = line.strip()
-            if "=" not in line or line.startswith(("#", ";", "[")):
-                continue
-            key, value = line.split("=", 1)
-            key = key.strip()
-            value = value.strip()
-            if key == "Description":
-                feature["description"] = value
-            elif key == "Documentation":
-                feature["documentation"] = value
-            elif key == "Enabled":
-                feature["enabled"] = value.lower() in ("true", "yes", "1")
-    return feature
-
-def _feature_dropins(name: str) -> list[str]:
-    """Drop-in paths for a feature, in application order.
-
-    A same-named drop-in in a higher-precedence directory masks the lower
-    one; the surviving set applies sorted by file name (updex writes the
-    enablement as <name>.feature.d/00-updex.conf in /etc/sysupdate.d).
-    """
-    dropins = {}
-    for directory in reversed(_SYSUPDATE_DIRS):
-        dropin_dir = os.path.join(directory, name + ".feature.d")
-        try:
-            entries = os.listdir(dropin_dir)
-        except OSError:
-            continue
-        for entry in entries:
-            if entry.endswith(".conf"):
-                dropins[entry] = os.path.join(dropin_dir, entry)
-    return [dropins[entry] for entry in sorted(dropins)]
-
-def list_sysext_features() -> list[dict]:
-    """Discover optional sysext features from *.feature files.
-
-    Returns a sorted list of {"name", "description", "documentation",
-    "enabled"} dicts, empty when the image ships no feature definitions.
-    """
-    features = {}
-    # Lowest-precedence directory first so a .feature file in e.g. /etc
-    # replaces the one shipped in /usr/lib.
-    for directory in reversed(_SYSUPDATE_DIRS):
-        try:
-            entries = sorted(os.listdir(directory))
-        except OSError:
-            continue
-        for entry in entries:
-            if not entry.endswith(".feature"):
-                continue
-            name = entry[: -len(".feature")]
-            try:
-                features[name] = _parse_feature_file(os.path.join(directory, entry))
-            except OSError as e:
-                logger.warning(f"Could not read feature file {entry}: {e}")
-    result = []
-    for name, feature in features.items():
-        for dropin in _feature_dropins(name):
-            try:
-                feature.update(_parse_feature_file(dropin))
-            except OSError as e:
-                logger.warning(f"Could not read feature drop-in {dropin}: {e}")
-        result.append({
-            "name": name,
-            "description": feature.get("description") or name,
-            "documentation": feature.get("documentation", ""),
-            "enabled": feature.get("enabled", False),
-        })
-    return sorted(result, key=lambda feature: feature["name"])
-
-def _enable_sysext(name: str):
-    return run_script("sysext-features", [name], root=True)
-
 def _install_flatpak(id: str):
     return run_script("flatpak", [id])
 
-def _install_flatpak_system(id: str):
-    return run_script("flatpak-system", [id], root=True)
 
-
-def run_script(name: str, args: list[str], root: bool = False, input_data: str = None) -> bool:
+def run_script(name: str, args: list[str], input_data: str = None) -> bool:
     if dry_run:
         print("dry-run", name, args)
         time.sleep(0.3)
@@ -222,8 +80,6 @@ def run_script(name: str, args: list[str], root: bool = False, input_data: str =
         return True
     script_path = os.path.join(script_base_path, name)
     command = [script_path] + args
-    if root:
-        command = ["pkexec"] + command
 
     logger.info(f"Executing command: {command}")
 
@@ -246,46 +102,6 @@ def run_script(name: str, args: list[str], root: bool = False, input_data: str =
         return False
 
     return True
-
-def run_script_with_output(name: str, args: list[str], root: bool = False, input_data: str = None) -> tuple[bool, str]:
-    """Execute a script and return (success, stdout).
-
-    Mirrors run_script but also returns the captured stdout for callers that need
-    to consume script output.
-    """
-    if dry_run:
-        print("dry-run", name, args)
-        time.sleep(0.3)
-        return True, ""
-    if script_base_path == None:
-        print("Could not run operation", name, args, "due to missing script base path")
-        return True, ""
-    script_path = os.path.join(script_base_path, name)
-    command = [script_path] + args
-    if root:
-        command = ["pkexec"] + command
-
-    logger.info(f"Executing command: {command}")
-
-    process = subprocess.Popen(
-        command,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        stdin=subprocess.PIPE
-    )
-
-    result, _ = process.communicate(input=input_data)
-
-    logger.info(f"Output from {name}:\n{result}")
-
-    if process.returncode != 0:
-        report_error(name, command, result)
-        print(name, args, "returned an error:")
-        print(result)
-        return False, result or ""
-
-    return True, result or ""
 
 _error_count = 0
 _lock_error_count = False
@@ -316,16 +132,6 @@ def setup_system_deferred():
     _deferred_actions[uid] = {"action_id": action_id, "uid": uid, "callback": setup_system}
     report_progress(action_id, uid, ProgressState.Initialized)
 
-def add_user_deferred(username: str, full_name: str, password: str, shell: str = "/usr/bin/bash"):
-    global _deferred_actions
-    action_id = "add_user"
-    uid = action_id
-    action_info = {"username": username, "full_name": full_name}
-    def add_user():
-        _run_function_with_progress(action_id, uid, action_info, _add_user, username, full_name, password, shell)
-    _deferred_actions[uid] = {"action_id": action_id, "callback": add_user, "info": action_info}
-    report_progress(action_id, uid, ProgressState.Initialized, action_info)
-
 def install_flatpak_deferred(id: str, name: str):
     global _deferred_actions
     action_id = "install_flatpak"
@@ -334,26 +140,6 @@ def install_flatpak_deferred(id: str, name: str):
     def install_flatpak():
         _run_function_with_progress(action_id, uid, action_info, _install_flatpak, id)
     _deferred_actions[uid] = {"action_id": action_id, "callback": install_flatpak, "info": action_info}
-    report_progress(action_id, uid, ProgressState.Initialized, action_info)
-
-def install_flatpak_system_deferred(id: str, name: str):
-    global _deferred_actions
-    action_id = "install_flatpak"
-    uid = action_id+id
-    action_info = {"app_id": id, "app_name": name}
-    def install_flatpak():
-        _run_function_with_progress(action_id, uid, action_info, _install_flatpak_system, id)
-    _deferred_actions[uid] = {"action_id": action_id, "callback": install_flatpak, "info": action_info}
-    report_progress(action_id, uid, ProgressState.Initialized, action_info)
-
-def enable_sysext_deferred(name: str, description: str):
-    global _deferred_actions
-    action_id = "enable_sysext"
-    uid = action_id+name
-    action_info = {"feature_name": name, "feature_description": description}
-    def enable_sysext():
-        _run_function_with_progress(action_id, uid, action_info, _enable_sysext, name)
-    _deferred_actions[uid] = {"action_id": action_id, "callback": enable_sysext, "info": action_info}
     report_progress(action_id, uid, ProgressState.Initialized, action_info)
 
 def _run_function_with_progress(action_id: str, uid: str, action_info: dict, function, *args):
@@ -369,14 +155,6 @@ def clear_flatpak_deferred():
     new_list = {}
     for uid, action in _deferred_actions.items():
         if action["action_id"] != "install_flatpak":
-            new_list[uid] = action
-    _deferred_actions = new_list
-
-def clear_sysext_deferred():
-    global _deferred_actions
-    new_list = {}
-    for uid, action in _deferred_actions.items():
-        if action["action_id"] != "enable_sysext":
             new_list[uid] = action
     _deferred_actions = new_list
 
@@ -413,76 +191,3 @@ def set_dry_run(dry: bool):
 def subscribe_errors(callback):
     global _error_subscribers
     _error_subscribers.append(callback)
-
-def run_script_streaming(name: str, args: list[str], root: bool = False, line_callback=None) -> bool:
-    """Execute a script and stream its output line-by-line to a callback.
-
-    This is designed for scripts that output JSON Lines (one JSON object per line)
-    for real-time progress monitoring.
-
-    Args:
-        name: Script name to execute
-        args: Arguments to pass to the script
-        root: Whether to run with pkexec for root privileges
-        line_callback: Function called with each line of output (str)
-
-    Returns:
-        bool: True if script succeeded, False otherwise
-    """
-    if dry_run:
-        print("dry-run (streaming)", name, args)
-        # Simulate some progress events for dry-run testing
-        import json
-        import time
-        fake_events = [
-            {"type": "message", "message": "Dry run: Checking prerequisites..."},
-            {"type": "step", "step": 1, "total_steps": 4, "step_name": "Creating partitions"},
-            {"type": "step", "step": 2, "total_steps": 4, "step_name": "Formatting partitions"},
-            {"type": "step", "step": 3, "total_steps": 4, "step_name": "Extracting filesystem"},
-            {"type": "progress", "percent": 25, "message": "Layer 1/4"},
-            {"type": "progress", "percent": 50, "message": "Layer 2/4"},
-            {"type": "progress", "percent": 75, "message": "Layer 3/4"},
-            {"type": "progress", "percent": 100, "message": "Layer 4/4"},
-            {"type": "step", "step": 4, "total_steps": 4, "step_name": "Installing bootloader"},
-            {"type": "complete", "message": "Installation complete (dry run)"},
-        ]
-        for event in fake_events:
-            if line_callback:
-                line_callback(json.dumps(event))
-            time.sleep(0.3)
-        return True
-
-    if script_base_path is None:
-        print("Could not run operation", name, args, "due to missing script base path")
-        return False
-
-    script_path = os.path.join(script_base_path, name)
-    command = [script_path] + args
-    if root:
-        command = ["pkexec"] + command
-
-    logger.info(f"Executing streaming command: {command}")
-
-    process = subprocess.Popen(
-        command,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        text=True,
-        bufsize=1  # Line buffered
-    )
-
-    # Read output line by line and pass to callback
-    for line in process.stdout:
-        line = line.strip()
-        if line and line_callback:
-            line_callback(line)
-        logger.debug(f"Stream line from {name}: {line}")
-
-    process.wait()
-
-    if process.returncode != 0:
-        report_error(name, command, f"Script exited with code {process.returncode}")
-        print(name, args, "returned an error (exit code", process.returncode, ")")
-        return False
-
-    return True

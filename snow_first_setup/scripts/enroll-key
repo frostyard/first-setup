@@ -1,9 +1,0 @@
-#!/bin/bash
-if [ -z "$1" ]; then
-    echo "usage:"
-    echo "enroll-key <path>"
-    exit 5
-fi
-
-mokutil --timeout -1
-echo -e "snowlinux\nsnowlinux" | mokutil --import "$1"

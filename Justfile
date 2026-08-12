@@ -45,13 +45,5 @@ bump: changelog
 
 run:
     @echo "Running the application..."
-    python3 test.py -d -r
-
-run-configure:
-    @echo "Running the application in configuration mode..."
-    python3 test.py -d -c
-
-run-install:
-    @echo "Running in install mode..."
-    python3 test.py -d -i
+    python3 test.py -d
 
