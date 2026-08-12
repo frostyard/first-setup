@@ -2,28 +2,13 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 scriptsdir = join_paths(pkgdatadir, 'snow_first_setup/scripts')
 
 sources = [
-  'disable-lockscreen',
-  'keyboard',
-  'logout',
-  'open-network-settings',
-  'theme',
-  'flatpak',
-  'flatpak-system',
-  'live-keyboard',
-  'setup-flatpak-remote',
-  'timezone',
-  'hostname',
-  'locale',
-  'open-accessibility-settings',
-  'setup-system',
-  'user',
-  'remove-first-setup-user',
   'complete-setup',
-  'install-to-disk',
-  'enroll-key',
-  'recovery-key',
-  'oemcomplete',
-  'sysext-features',
+  'flatpak',
+  'open-accessibility-settings',
+  'open-network-settings',
+  'setup-flatpak-remote',
+  'setup-system',
+  'theme',
 ]
 
 install_data(sources, install_dir: scriptsdir)

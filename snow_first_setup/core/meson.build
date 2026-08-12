@@ -5,9 +5,6 @@ sources = [
   '__init__.py',
   'applications.py',
   'backend.py',
-  'keyboard.py',
-  'languages.py',
-  'timezones.py',
 ]
 
 install_data(sources, install_dir: coredir)

@@ -1,22 +1,50 @@
 <div align="center">
     <img src="data/icons/hicolor/scalable/apps/org.frostyard.FirstSetup.svg">
-    <h1>Vanilla OS First Setup</h1>
-    <p>This utility is meant to be used in <a href="https://github.com/vanilla-os">Vanilla OS</a>
-    as a first-setup wizard. Its purpose is to help the user to configure the
-    system to their needs, e.g. by configuring hostname, theme, flatpak apps, etc.</p>
-    <hr />
-    <a href="https://hosted.weblate.org/projects/vanilla-os/first-setup/#information">
-<img src="https://hosted.weblate.org/widgets/vanilla-os/-/first-setup/svg-badge.svg" alt="Translation status" />
-</a>
-    <br />
-    <img src="data/screenshots/welcome-page.png">
+    <h1>SNOW First Setup</h1>
+    <p>First-login personal setup wizard for SNOW Linux. It runs once per
+    user on their first login and handles light per-user preferences:
+    light/dark style, optional flatpak applications, and small per-user
+    conveniences.</p>
 </div>
 
-## Forked from Vanilla OS
+## Scope
 
-https://github.com/Vanilla-OS/first-setup
+This tool only does **first-login, per-user** setup. Installation and all
+system-level configuration (disk install, hostname, locale, keyboard,
+timezone, user creation, system extensions) are handled by
+[firn](https://github.com/frostyard/firn), the snosi installer — the old
+installer and first-boot configure modes that used to live here have been
+removed.
 
-## Run without building for Testing
+What remains:
+
+- Welcome page with accessibility settings shortcut
+- Internet connectivity check
+- Light/dark style preference
+- Optional per-user flatpak applications (from `snow_first_setup/apps.json`,
+  installed with `flatpak --user` from Flathub)
+- Small per-user conveniences (e.g. Homebrew shell setup in `~/.bashrc`)
+
+## How it is launched
+
+The package installs a system-wide XDG autostart entry
+(`/etc/xdg/autostart/org.frostyard.FirstSetup.autostart.desktop`) that runs
+`snow-first-setup --autostart` on every graphical login. The app exits
+immediately when the per-user completion marker
+(`~/.config/snow-first-setup.done`, written by the `complete-setup` script
+when the wizard finishes) exists, or when running in a live session.
+
+## `core.json` contract
+
+`snow_first_setup/core.json` is installed to
+`/usr/share/org.frostyard.FirstSetup/snow_first_setup/core.json` and is a
+cross-repo contract: it defines the core system flatpak set that
+[firn](https://github.com/frostyard/firn) installs at install time
+(`core_flatpaks`) and that `snosi-firstboot` provisions on first boot. It is
+not read by this wizard itself, but it must keep shipping at exactly that
+path.
+
+## Run without building for testing
 
 > [!IMPORTANT]
 > You need to install all build and run dependencies first
@@ -25,11 +53,10 @@ https://github.com/Vanilla-OS/first-setup
 python3 test.py -d
 ```
 
-The "-d" option is the dry-run mode, without it, first-setup will make changes to your system.
+The `-d` option is the dry-run mode; without it, first-setup will make
+changes to your user account.
 
-Pass the "-c" flag to force the configure system mode.
-
-### Test translations:
+### Test translations
 
 You can change the used language like this:
 
@@ -46,13 +73,14 @@ sudo apt-get update
 sudo apt-get build-dep .
 ```
 
-If you want to install the build dependencies manually, have a look in:
-[debian/control](https://github.com/Vanilla-OS/first-setup/blob/main/debian/control)
+If you want to install the build dependencies manually, have a look in
+[debian/control](debian/control).
 
 ### Building
 
 > [!WARNING]
-> dpkg-buildpackage places it's output files (Like the .deb file) into the parent folder.
+> dpkg-buildpackage places its output files (like the .deb file) into the
+> parent folder.
 
 ```bash
 dpkg-buildpackage
@@ -71,26 +99,7 @@ Here you can change the install folder (default is /usr/local), for example:
 meson setup --prefix="$(pwd)/install" build
 ```
 
-## Modes
-
-first-setup has multiple "modes" for running:
-
-- OEM Mode: sets language, keyboard, timezone
-- Configure Mode: set hostname, creates first user
-- Regular Mode: runs on first login of created user, installs flatpaks, configures user-level things
-- Install mode: when `snow-linux.live=1` is detected in the kernel command line, this triggers install mode.
-
-## Installing first-setup
-
-### Installing runtime dependencies
-
-These can be found here:
-[debian/control](https://github.com/Vanilla-OS/first-setup/blob/main/debian/control)
-
-> [!TIP]
-> If you use apt-get to install the .deb file it will automatically install the dependencies.
-
-### Installing
+## Installing
 
 ```bash
 sudo apt-get install ./snow-first-setup*.deb
@@ -104,43 +113,15 @@ meson install -C build
 
 ## Run
 
-### Creating initial user
-
-A special user is needed to run the initial setup for hostname, user-creation, locale, etc.
-
-1. Create a user
-2. Create the group snow-first-setup (Changing the gid is recommended to avoid messing with user groups)
-3. Add the user to group snow-first-setup
-4. Create the file `/var/lib/AccountsService/users/your_user`
-
-```ini
-[User]
-Session=firstsetup
-```
-
-5. Create the file `/etc/gdm3/daemon.conf` (replace your_user)
-
-```ini
-[daemon]
-AutomaticLogin=your_user
-AutomaticLoginEnable=True
-```
-
-> [!WARNING]
-> All users in this group will be deleted on the first reboot after a successful first setup.
-
-### Running
-
 ```bash
 snow-first-setup
 ```
 
-#### Flags:
+### Flags
 
 - `--dry-run (-d)`: Don't make any changes to the system.
-- `--force-configure-mode (-c)`: Force the configure system mode, independant of group.
-- `--force-regular-mode (-r)`: Force the regular mode, independant of group.
-- `--oem-mode (-o)`: Use the original equipment manufacturer mode with language, keyboard and timezone selection.
+- `--autostart (-a)`: Used by the autostart entry; exits immediately if this
+  user already completed first setup or in a live session.
 
 ## Update translation file
 
@@ -150,18 +131,12 @@ To update the .pot file with newly added translation strings, run:
 meson compile -C build snow-first-setup-pot
 ```
 
-## Adjust for Custom Image
+## Adjust for a custom image
 
-### Adjusting the scripts
+The scripts which are used to apply the user's choices can be found in
+`/usr/share/org.frostyard.FirstSetup/snow_first_setup/scripts/`. Overwrite
+them to your needs in your image.
 
-The scripts which are used to modify the system can be found in `/usr/share/org.frostyard.FirstSetup/snow_first_setup/scripts/`.
+## Provenance
 
-Please adjust (overwrite) them to your needs in your image.
-
-### Non-GNOME desktops
-
-If you are using a different desktop than GNOME, you will have to adjust `/usr/share/xsessions/firstsetup.desktop` and `/usr/share/wayland-sessions/firstsetup.desktop`.
-
-This session is only used to create a new user account. It should be a restricted shell to prevent the user from making changes to the system that will be lost when logging into their own user account.
-
-If your Desktop doesn't offer this feature, just copy the session of your desktop to firstsetup.desktop.
+Forked from [Vanilla OS first-setup](https://github.com/Vanilla-OS/first-setup).

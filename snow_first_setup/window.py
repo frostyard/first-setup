@@ -43,15 +43,12 @@ class VanillaWindow(Adw.ApplicationWindow):
     pages = []
     __current_page_index = 0
 
-    def __init__(self, moduledir: str, configure_system_mode: bool, oem_mode: bool = False, install_mode: bool = False, **kwargs):
+    def __init__(self, moduledir: str, **kwargs):
         super().__init__(**kwargs)
 
         self.moduledir = moduledir
-        self.configure_system_mode = configure_system_mode
-        self.oem_mode = oem_mode
-        self.install_mode = install_mode
 
-        self.__build_ui(configure_system_mode, install_mode)
+        self.__build_ui()
         self.__connect_signals()
 
         backend.subscribe_errors(self.__error_received)
@@ -95,133 +92,34 @@ class VanillaWindow(Adw.ApplicationWindow):
         self.btn_next.connect("clicked", self.__on_btn_next_clicked)
         return
 
-    def __build_ui(self, configure_system_mode: bool, install_mode: bool):
+    def __build_ui(self):
+        print("Building first-login mode UI.")
+        from snow_first_setup.views.welcome_user import VanillaWelcomeUser
+        from snow_first_setup.views.conn_check import VanillaConnCheck
+        from snow_first_setup.views.theme import VanillaTheme
+        from snow_first_setup.views.applications import VanillaLayoutApplications
+        from snow_first_setup.views.progress import VanillaProgress
+        from snow_first_setup.views.done import VanillaDone
 
-        if configure_system_mode:
-            from snow_first_setup.views.welcome import VanillaWelcome
-            if self.oem_mode:
-                from snow_first_setup.views.language import VanillaLanguage
-                from snow_first_setup.views.keyboard import VanillaKeyboard
-                from snow_first_setup.views.timezone import VanillaTimezone
-            from snow_first_setup.views.conn_check import VanillaConnCheck
-            from snow_first_setup.views.hostname import VanillaHostname
-            from snow_first_setup.views.user import VanillaUser
-            from snow_first_setup.views.sysext import VanillaSysext
-            from snow_first_setup.views.core_progress import VanillaCoreProgress
+        self.__view_welcome = VanillaWelcomeUser(self)
+        self.__view_welcome.no_next_button = True
+        self.__view_welcome.no_back_button = True
+        self.__view_conn_check = VanillaConnCheck(self)
+        self.__view_conn_check.no_back_button = True
+        self.__view_theme = VanillaTheme(self)
+        self.__view_theme.no_back_button = True
+        self.__view_apps = VanillaLayoutApplications(self)
+        self.__view_progress = VanillaProgress(self)
+        self.__view_progress.no_back_button = True
+        self.__view_done = VanillaDone(self)
+        self.__view_done.no_next_button = True
 
-            from snow_first_setup.views.logout import VanillaLogout
-
-            # The installer (bootc-installer) already sets a hostname at
-            # install time — only ask when the system still has the default.
-            ask_hostname = backend.hostname_is_default()
-
-            self.__view_welcome = VanillaWelcome(self)
-            self.__view_welcome.no_next_button = True
-            self.__view_welcome.no_back_button = True
-            self.__view_conn_check = VanillaConnCheck(self)
-            self.__view_conn_check.no_back_button = True
-            if self.oem_mode:
-                self.__view_language = VanillaLanguage(self)
-                self.__view_language.no_back_button = True
-                self.__view_keyboard = VanillaKeyboard(self)
-                self.__view_timezone = VanillaTimezone(self)
-                if ask_hostname:
-                    self.__view_hostname = VanillaHostname(self)
-            elif ask_hostname:
-                self.__view_hostname = VanillaHostname(self)
-                self.__view_hostname.no_back_button = True
-            self.__view_user = VanillaUser(self)
-            if not self.oem_mode and not ask_hostname:
-                # The hostname page was the first interactive page; without
-                # it the user page must not offer "back" into the checks.
-                self.__view_user.no_back_button = True
-            self.__view_sysext = VanillaSysext(self)
-            self.__view_coreprogress = VanillaCoreProgress(self)
-            self.__view_coreprogress.no_back_button = True
-            self.__view_logout = VanillaLogout(self)
-            self.__view_logout.no_next_button = True
-
-            self.pages.append(self.__view_welcome)
-            self.pages.append(self.__view_conn_check)
-            if self.oem_mode:
-                self.pages.append(self.__view_language)
-                self.pages.append(self.__view_keyboard)
-                self.pages.append(self.__view_timezone)
-            if ask_hostname:
-                self.pages.append(self.__view_hostname)
-            self.pages.append(self.__view_user)
-            # Only offer the extensions page when the image ships sysext
-            # feature definitions to choose from.
-            if self.__view_sysext.has_features:
-                self.pages.append(self.__view_sysext)
-            self.pages.append(self.__view_coreprogress)
-
-            self.pages.append(self.__view_logout)
-        elif install_mode:
-            print("Building install mode UI.")
-            from snow_first_setup.views.welcome_install import VanillaWelcomeInstall
-            from snow_first_setup.views.language import VanillaLanguage
-            from snow_first_setup.views.keyboard import VanillaKeyboard
-            from snow_first_setup.views.install_disk import VanillaInstallDisk
-            from snow_first_setup.views.install_confirm import VanillaInstallConfirm
-            from snow_first_setup.views.install_progress import VanillaInstallProgress
-            from snow_first_setup.views.install_done import VanillaInstallDone
-            from snow_first_setup.views.conn_check import VanillaConnCheck
-
-
-            self.__view_welcome = VanillaWelcomeInstall(self)
-            self.__view_welcome.no_next_button = True
-            self.__view_welcome.no_back_button = True
-            self.__view_conn_check = VanillaConnCheck(self)
-            self.__view_conn_check.no_back_button = True
-            self.__view_language = VanillaLanguage(self)
-            self.__view_language.no_back_button = True
-            self.__view_keyboard = VanillaKeyboard(self)
-            self.__view_installdisk = VanillaInstallDisk(self)
-            self.__view_installconfirm = VanillaInstallConfirm(self)
-
-            self.pages.append(self.__view_welcome)
-            self.pages.append(self.__view_conn_check)
-            self.pages.append(self.__view_language)
-            self.pages.append(self.__view_keyboard)
-            self.pages.append(self.__view_installdisk)
-            self.__view_installprogress = VanillaInstallProgress(self)
-            self.__view_installprogress.no_back_button = True
-            self.__view_installdone = VanillaInstallDone(self)
-            self.__view_installdone.no_next_button = True
-            self.__view_installdone.no_back_button = True
-            self.pages.append(self.__view_installconfirm)
-            self.pages.append(self.__view_installprogress)
-            self.pages.append(self.__view_installdone)
-
-        else:
-            print("Building first-login mode UI.")
-            from snow_first_setup.views.welcome_user import VanillaWelcomeUser
-            from snow_first_setup.views.conn_check import VanillaConnCheck
-            from snow_first_setup.views.theme import VanillaTheme
-            from snow_first_setup.views.applications import VanillaLayoutApplications
-            from snow_first_setup.views.progress import VanillaProgress
-            from snow_first_setup.views.done import VanillaDone
-
-            self.__view_welcome = VanillaWelcomeUser(self)
-            self.__view_welcome.no_next_button = True
-            self.__view_welcome.no_back_button = True
-            self.__view_conn_check = VanillaConnCheck(self)
-            self.__view_conn_check.no_back_button = True
-            self.__view_theme = VanillaTheme(self)
-            self.__view_theme.no_back_button = True
-            self.__view_apps = VanillaLayoutApplications(self)
-            self.__view_progress = VanillaProgress(self)
-            self.__view_progress.no_back_button = True
-            self.__view_done = VanillaDone(self)
-            self.__view_done.no_next_button = True
-
-            self.pages.append(self.__view_welcome)
-            self.pages.append(self.__view_conn_check)
-            self.pages.append(self.__view_theme)
-            self.pages.append(self.__view_apps)
-            self.pages.append(self.__view_progress)
-            self.pages.append(self.__view_done)
+        self.pages.append(self.__view_welcome)
+        self.pages.append(self.__view_conn_check)
+        self.pages.append(self.__view_theme)
+        self.pages.append(self.__view_apps)
+        self.pages.append(self.__view_progress)
+        self.pages.append(self.__view_done)
 
         for page in self.pages:
             self.stack.add_child(page)

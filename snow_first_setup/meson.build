@@ -31,6 +31,10 @@ subdir('core')
 subdir('scripts')
 subdir('views')
 
+# core.json is a cross-repo contract: firn reads it from the mounted image at
+# install time to install the core flatpak set (core_flatpaks), and
+# snosi-firstboot reads it on first boot. It must keep shipping at exactly
+# /usr/share/org.frostyard.FirstSetup/snow_first_setup/core.json.
 snow_first_setup_sources = [
   '__init__.py',
   'application.py',
@@ -39,7 +43,6 @@ snow_first_setup_sources = [
   'dialog.py',
   'apps.json',
   'core.json',
-  'images.json'
 ]
 
 install_data(snow_first_setup_sources, install_dir: moduledir)
