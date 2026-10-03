@@ -4,8 +4,10 @@ on:
   push:
     branches: ["main"]
   pull_request:
+# Nothing here uses the workflow token for writes: the continuous prerelease
+# is published with ORG_PAT.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -19,16 +21,19 @@ jobs:
       image: debian:trixie
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
-          token: "${{ secrets.ORG_PAT }}"
+          persist-credentials: false
           fetch-depth: 0 # Important: Need full history for gbp dch
 
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y git-buildpackage devscripts lintian
+          apt-get install -y git-buildpackage devscripts lintian python3-yaml
           apt-get build-dep -y .
+
+      - name: Check workflow contracts
+        run: python3 -B -m unittest discover -s tests -v
 
       - name: Build .deb package
         run: |
@@ -38,14 +43,14 @@ jobs:
       - name: Calculate and Save Checksums
         run: |
           sha256sum snow-first-setup.deb >> checksums.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: snow-first-setup
           path: |
             checksums.txt
             snow-first-setup.deb
 
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
         if: github.ref == 'refs/heads/main'
         with:
           token: "${{ secrets.ORG_PAT }}"

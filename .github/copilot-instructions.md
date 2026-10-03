@@ -40,16 +40,20 @@ This file gives repository-specific, actionable guidance for AI coding agents wo
 - Update translations: `meson compile -C build snow-first-setup-pot`
 - Build package: `dpkg-buildpackage`
 
-7. When editing files that affect the image
+7. Releases and CI workflows
+- A `vX.Y.Z` tag (from `just bump`) runs `.github/workflows/release.yml`: build, attest, GitHub release, then a `publish-deb` dispatch to `frostyard/apt-publisher`, which publishes the `.deb` to the Debian repository and triggers the snosi rebuild. Never add a direct upload, signing step or snosi dispatch here; apt-publisher is the single Debian writer (frostyard/core ADR-0055/0056).
+- Pin every action to a full commit SHA with a `# vX.Y.Z` comment, keep `permissions:` minimal, and pass `${{ }}` values to `run:` through `env:`. `just test` (`tests/test_workflows.py`) enforces this; update it with any workflow change.
+
+8. When editing files that affect the image
 - If you change `snow_first_setup/scripts/*`, remember these are the scripts shipped to images. Keep them small, documented, and idempotent.
 - If you change session files or desktop entries, update `data/` files (e.g., `org.frostyard.FirstSetup.desktop.in`) and the corresponding `meson.build` install stanza.
 
-8. Quick pointers for AI code edits
+9. Quick pointers for AI code edits
 - Prefer minimal, targeted changes: update `meson.build` or `debian/control` only when necessary.
 - When adding CLI flags or behavior, keep `test.py` parity (dry-run support) and update README examples.
 - Use `gettext` patterns already present (`gettext.install('snow-first-setup', localedir)`) — add new translatable strings using `_('text')`.
 
-9. Useful files to inspect when diagnosing issues
+10. Useful files to inspect when diagnosing issues
 - `README.md` — build/run workflows and commands.
 - `snow_first_setup/main.py` — app boot sequence.
 - `snow_first_setup/application.py` and `snow_first_setup/core/` — logic and flow.

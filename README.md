@@ -137,6 +137,40 @@ The scripts which are used to apply the user's choices can be found in
 `/usr/share/org.frostyard.FirstSetup/snow_first_setup/scripts/`. Overwrite
 them to your needs in your image.
 
+## Releasing
+
+`just bump` writes the next version into `debian/changelog`, commits it,
+and pushes the matching `vX.Y.Z` tag. The tag runs
+[`release.yml`](.github/workflows/release.yml), which:
+
+1. checks that the tag matches the `debian/changelog` version, then builds
+   the package in `debian:trixie`;
+2. attests `snow-first-setup_<version>_all.deb` and `checksums.txt` with
+   GitHub build provenance;
+3. creates the GitHub release with those two files;
+4. asks `frostyard/apt-publisher` (a private repository) to publish the
+   release: a `publish-deb` dispatch, authenticated by the
+   `APT_PUBLISH_TOKEN` secret.
+
+apt-publisher is the only writer of the Frostyard Debian repository
+([core ADR-0055](https://github.com/frostyard/core/blob/main/docs/adr/0055-publish-debian-packages-through-the-apt-publisher.md)).
+It verifies the attestation against the tag, publishes the package to
+`trixie` at `https://repository.frostyard.org/debian/`, and then asks
+[snosi](https://github.com/frostyard/snosi) to rebuild its images
+([core ADR-0056](https://github.com/frostyard/core/blob/main/docs/adr/0056-rebuild-images-after-apt-publication.md)).
+This repository does not sign or upload packages itself.
+
+If the publication request fails, the release already exists: fix the
+cause, then use "Re-run failed jobs" on the release run.
+
+The release must carry exactly one `.deb`, named
+`snow-first-setup_<version>_all.deb`: apt-publisher publishes every `.deb`
+asset under its file name.
+
+`just test` runs the workflow contract tests in `tests/` (they need
+`python3-yaml`). They pin this release flow and require every action to be
+pinned to a commit SHA.
+
 ## Provenance
 
 Forked from [Vanilla OS first-setup](https://github.com/Vanilla-OS/first-setup).

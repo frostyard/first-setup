@@ -1,9 +1,18 @@
 name: Release
 
+# A version tag (vX.Y.Z, pushed by `just bump`) builds snow-first-setup,
+# attests it, creates the GitHub release, and asks frostyard/apt-publisher to
+# publish it. apt-publisher is the only writer of the Debian repository
+# (frostyard/core ADR-0055); after the package is installable it dispatches
+# `build` to frostyard/snosi (ADR-0056). tests/test_workflows.py pins this.
 on:
   push:
     tags:
-      - "*"
+      # Only version tags. The `continuous` prerelease tag from build.yml must
+      # never start a release.
+      - "v*"
+
+permissions: {}
 
 jobs:
   build-artifacts:
@@ -19,106 +28,107 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
-          token: "${{ secrets.ORG_PAT }}"
-          fetch-depth: 0 # Important: Need full history for gbp dch
-
-      - name: Set meson version by tag
-        id: set_version
-        run: |
-          sed -i 's/VTESTING/${{ github.ref_name }}/g' meson.build
+          persist-credentials: false
 
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y awscli dpkg-dev devscripts
+          apt-get install -y dpkg-dev devscripts
           apt-get build-dep -y .
 
+      # apt-publisher refuses different bytes under a version it already
+      # serves, so a tag must build the version debian/changelog names
+      # (`just bump` writes both).
+      - name: Check the tag matches debian/changelog
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version=$(dpkg-parsechangelog -SVersion)
+          if [ "$TAG" != "v$version" ]; then
+            echo "::error::tag $TAG does not match debian/changelog version $version"
+            exit 1
+          fi
+
+      - name: Set meson version by tag
+        env:
+          TAG: ${{ github.ref_name }}
+        run: sed -i "s/VTESTING/$TAG/g" meson.build
+
+      # apt-publisher publishes every .deb attached to the release under its
+      # file name, so attach exactly one, named name_version_arch.deb.
       - name: Build .deb package
         env:
           EMAIL: bketelsen@gmail.com
         run: |
           dpkg-buildpackage
-          cp ../snow-first-setup_*.deb snow-first-setup.deb
+          version=$(dpkg-parsechangelog -SVersion)
+          mkdir -p dist
+          mv ../snow-first-setup_*.deb dist/
+          if [ "$(ls dist)" != "snow-first-setup_${version}_all.deb" ]; then
+            echo "::error::expected only snow-first-setup_${version}_all.deb, got: $(ls dist)"
+            exit 1
+          fi
+          (cd dist && sha256sum -- *.deb > checksums.txt)
 
-      - name: Calculate and Save Checksums
-        run: |
-          sha256sum snow-first-setup.deb >> checksums.txt
-
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: first-setup
-          path: |
-            checksums.txt
-            snow-first-setup.deb
-
-      - name: Move files
-        run: |
-          mkdir -p ./dist
-          mv ../snow-first-setup_*.deb  ./dist/
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: first-setup-repogen
-          path: ./dist/*.deb
+          path: dist/
+          if-no-files-found: error
 
   release:
     runs-on: ubuntu-latest
     needs: build-artifacts
     permissions:
-      contents: write # to create and upload assets to releases
-      attestations: write # to upload assets attestation for build provenance
-      id-token: write # grant additional permission to attestation action to mint the OIDC token permission
+      contents: write # to create the release and upload its assets
+      attestations: write # to store the build-provenance attestation
+      id-token: write # to mint the OIDC token the attestation is signed with
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Download Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: first-setup
+          path: dist
+
+      # Binds each asset to this run at refs/tags/<tag>. apt-publisher checks
+      # it with `gh attestation verify --source-ref refs/tags/<tag>` before
+      # publishing. Attested before the release exists, so no release is ever
+      # created without provenance.
+      - name: Attest Release Files
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: |
+            dist/*.deb
+            dist/checksums.txt
 
       - name: Create Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${{ github.ref_name }}" --generate-notes snow-first-setup.deb checksums.txt
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+        run: gh release create "$TAG" --verify-tag --generate-notes dist/*.deb dist/checksums.txt
 
-      - name: Attest Release Files
-        id: attest
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: "snow-first-setup.deb, checksums.txt"
+  # A job of its own, so that a failed request can be retried with "Re-run
+  # failed jobs" without recreating the release.
+  request-publication:
+    runs-on: ubuntu-latest
+    needs: release
+    permissions: {}
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
+    steps:
+      # The .deb is published by frostyard/apt-publisher, the single Debian
+      # writer (frostyard/core ADR-0055). It downloads this release's .deb
+      # assets, verifies their provenance, publishes them to trixie, and then
+      # dispatches `build` to frostyard/snosi once they are installable
+      # (ADR-0056). Not continue-on-error: if this request fails, nothing was
+      # published and the release run must fail.
+      - name: Request APT publication
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4
         with:
-          name: first-setup-repogen
-          path: ./dist
-
-      - name: Publish to frostyard repo
-        uses: frostyard/repogen/.github/actions/publish-to-r2@main
-        with:
-          r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
-          r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
-          r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          r2-bucket: frostyardrepo
-          purge-cache: "true"
-          cloudflare-zone: ${{ secrets.CLOUDFLARE_ZONE }}
-          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          gpg-private-key: ${{ secrets.REPOGEN_GPG_KEY }}
-          packages-dir: ./dist
-          package-type: deb # or sysext
-          base-url: https://repository.frostyard.org # required for sysext
-
-      - name: Kickoff snosi
-        if: startsWith(github.ref, 'refs/tags/')
-        continue-on-error: true
-        uses: peter-evans/repository-dispatch@v4
-        with:
-          token: ${{ secrets.ORG_PAT }}
-          repository: frostyard/snosi
-          event-type: build
+          token: ${{ secrets.APT_PUBLISH_TOKEN }}
+          repository: frostyard/apt-publisher
+          event-type: publish-deb
+          client-payload: '{"repo": "${{ github.repository }}", "tag": "${{ github.ref_name }}"}'
