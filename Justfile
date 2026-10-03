@@ -47,3 +47,7 @@ run:
     @echo "Running the application..."
     python3 test.py -d
 
+# Workflow contract tests (needs python3-yaml)
+test:
+    python3 -B -m unittest discover -s tests -v
+
