@@ -1,3 +1,10 @@
+snow-first-setup (0.4.1) stable; urgency=medium
+
+  * Merge pull request #30 from frostyard/ci/request-apt-publication
+  * ci(release): request APT publication from frostyard/apt-publisher
+
+ -- Brian Ketelsen <bketelsen@gmail.com>  Sat, 03 Oct 2026 20:02:30 -0400
+
 snow-first-setup (0.4.0) stable; urgency=medium
 
   * Merge pull request #29 from frostyard/first-login-only
