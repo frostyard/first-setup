@@ -28,15 +28,35 @@ clean:
 changelog:
     #!/usr/bin/env bash
     set -euo pipefail
+    # debian/changelog sets the package version for dpkg-buildpackage, so
+    # each release prepends one entry: the commit subjects since the last
+    # tag, written with dch (devscripts). The GitHub release page uses
+    # GitHub's generated notes (release.yml), not this file.
     VERSION=$(svu next)
-    echo "Generating changelog for ${VERSION}..."
-    gchlog --write
+    PREV=$(git describe --tags --abbrev=0)
+    if [ "${VERSION}" = "${PREV}" ]; then
+        echo "No release-worthy commits since ${PREV}." >&2
+        exit 1
+    fi
+    export DEBFULLNAME="${DEBFULLNAME:-$(git config user.name)}"
+    export DEBEMAIL="${DEBEMAIL:-$(git config user.email)}"
+    echo "Writing debian/changelog entry for ${VERSION}..."
+    first=1
+    while IFS= read -r subject; do
+        if [ "${first}" = 1 ]; then
+            dch --newversion "${VERSION#v}" --distribution stable \
+                --urgency medium "${subject}"
+            first=0
+        else
+            dch --append "${subject}"
+        fi
+    done < <(git log --format=%s "${PREV}..HEAD")
 
 bump: changelog
     #!/usr/bin/env bash
     set -euo pipefail
     VERSION=$(svu next)
-    echo "Bumping to v${VERSION}..."
+    echo "Bumping to ${VERSION}..."
     git add -A
     git commit -m "chore: release ${VERSION}"
     git push origin main
