@@ -104,10 +104,6 @@ class FirstSetupApplication(Adw.Application):
         We raise the application's main window, creating it if
         necessary.
         """
-        # First-login mode is the only mode: installation and system-level
-        # configuration are handled by firn (https://github.com/frostyard/firn)
-        # before this app ever runs.
-        print("Running in first-login mode.")
         backend.setup_system_deferred()
 
         provider = Gtk.CssProvider()

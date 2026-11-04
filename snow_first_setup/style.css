@@ -23,12 +23,3 @@
   .appearance-thumbnail {
     border-radius: 6px;
   }
-
-/* Password entry validation error styling */
-row.error {
-  background-color: alpha(@error_color, 0.15);
-}
-
-row.error entry {
-  color: @error_color;
-}

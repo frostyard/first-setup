@@ -24,12 +24,11 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           persist-credentials: false
-          fetch-depth: 0 # Important: Need full history for gbp dch
 
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y git-buildpackage devscripts lintian python3-yaml
+          apt-get install -y devscripts lintian python3-yaml
           apt-get build-dep -y .
 
       - name: Check workflow contracts

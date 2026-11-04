@@ -20,7 +20,7 @@ import pwd
 
 _ = __builtins__["_"]
 
-from gi.repository import Gtk, GLib, Adw
+from gi.repository import Gtk, Adw
 
 import snow_first_setup.core.backend as backend
 
