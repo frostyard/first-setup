@@ -3,7 +3,7 @@
 This file gives repository-specific, actionable guidance for AI coding agents working on this project.
 
 1. Project summary
-- Purpose: a GNOME/GTK-based "first setup" wizard for SNOW Linux that configures hostname, user, locale, installs flatpaks, etc.
+- Purpose: a GNOME/GTK-based "first setup" wizard for SNOW Linux that runs once per user on first login: light/dark style, optional per-user flatpaks, small per-user conveniences. Installation and system-level configuration are handled by firn.
 - Language & build: Python app bundled with GNOME resources; built with Meson and packaged as a Debian package (`debian/`).
 
 2. Key entry points & locations
@@ -11,7 +11,7 @@ This file gives repository-specific, actionable guidance for AI coding agents wo
 - Application logic: `snow_first_setup/application.py` and `snow_first_setup/core/` contain business logic and backend helpers.
 - Scripts that run on the target image: `snow_first_setup/scripts/` (installed to `/usr/share/org.frostyard.FirstSetup/snow_first_setup/scripts/`).
 - UI/resource files: `snow_first_setup/snow-first-setup.gresource.xml` and assets in `snow_first_setup/assets/`.
-- Packaging and metadata: `debian/` (control, install, rules) and top-level `meson.build` files.
+- Packaging and metadata: `debian/` (control, rules, maintscript) and top-level `meson.build` files.
 
 3. Developer workflows (commands you should prefer)
 - Run the app locally (dry-run): `python3 test.py -d` (safe — does not modify system).
@@ -32,7 +32,7 @@ This file gives repository-specific, actionable guidance for AI coding agents wo
 5. What to check before changes
 - Entrypoints: after code edits, search `snow_first_setup/main.py` to confirm registered resources and `FirstSetupApplication` usage are unchanged.
 - Meson integration: open `meson.build` entries in the top-level and `snow_first_setup/meson.build` to ensure new files are included in the `gresource` target.
-- Debian package impact: modify `debian/control` when adding runtime dependencies; modify `debian/*.install` when changing installed paths.
+- Debian package impact: modify `debian/control` when adding runtime dependencies; installed paths come from the `meson.build` install stanzas.
 
 6. Examples (copyable)
 - Run dry-run: `python3 test.py -d`
@@ -58,6 +58,6 @@ This file gives repository-specific, actionable guidance for AI coding agents wo
 - `snow_first_setup/main.py` — app boot sequence.
 - `snow_first_setup/application.py` and `snow_first_setup/core/` — logic and flow.
 - `meson.build` (top-level and `snow_first_setup/`) — bundling/resources.
-- `debian/control` and `debian/*.install` — packaging/dependencies.
+- `debian/control` — packaging/dependencies.
 
 If anything in these instructions is unclear or you want more detail in a particular area (packaging, translations, meson targets, or runtime scripts), tell me which area and I'll expand it.

@@ -93,7 +93,6 @@ class VanillaWindow(Adw.ApplicationWindow):
         return
 
     def __build_ui(self):
-        print("Building first-login mode UI.")
         from snow_first_setup.views.welcome_user import VanillaWelcomeUser
         from snow_first_setup.views.conn_check import VanillaConnCheck
         from snow_first_setup.views.theme import VanillaTheme

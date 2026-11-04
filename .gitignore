@@ -11,3 +11,5 @@ snow_first_setup/snow-first-setup.gresource
 .buildconfig
 install/
 localegen/
+debian/debhelper-build-stamp
+debian/*.substvars
